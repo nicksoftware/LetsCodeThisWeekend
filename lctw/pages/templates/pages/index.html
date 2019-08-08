@@ -1,0 +1,204 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title%}Let's Code This Weekend{% endblock %}
+
+{% block content %}
+<div class="page-header header-filter blur-filter blue-filter " data-parallax="true"
+  style="background-image: url({% static 'img/main-background.jpg' %});background-size: cover;">
+  <div class="container ">
+    <div class="row">
+      <div class="col-md-8 ml-auto mr-auto">
+        <div class="brand">
+          <h1>Let's Code This Weekend</h1>
+          <h3>Start your Coding Career with us and move from Zero to Hero Within a Short space of time.</h3>
+          <form action="" class="">
+            <div class="input-group">
+
+              <input type="text" class="form-control" placeholder="Find your Course..">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <button class="btn btn-rose m-o"><i class="material-icons">search</i></button>
+                </span>
+              </div>
+            </div>
+          </form>
+          <button class="btn btn-info btn-rose btn-round ">Start Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <div>
+          <div class="section text-center">
+            <div class="row ">
+              <div class="col-md-8 ml-auto mr-auto">
+                <h2 class="title">Recently updated Courses</h2>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            {% for course in courses %}
+            <div class="col-md-6">
+                <div class="card card-nav-tabs text-center">
+                  <div class="card-body">
+                    <img class="card-img-top" src="{{ course.image.url }}" height="200" alt="Card image cap">
+                    <h4 class="card-title">{{ course.title }}</h4>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <h4>Instructor : Nicolas Maluleke</h4>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4 col-sm-10 ml-auto">
+                      <h4>Rating :</h4>
+                    </div>
+                    <div class="col-md-6 col-ms-10 ml-sm-auto">
+                      <div class="rating">
+                        <input type="radio" name="{{ course.id }}" id="star1"><label for="star1"></label>
+                        <input type="radio" name="{{ course.id }}" id="star2"><label for="star2"></label>
+                        <input type="radio" name="{{ course.id }}" id="star3" checked><label for="star3"></label>
+                        <input type="radio" name="{{ course.id }}" id="star4"><label for="star4"></label>
+                        <input type="radio" name="{{ course.id }}" id="star5"><label for="star5"></label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mt-0">
+                    <a href="#0" class="btn btn-rose btn-round"> <i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                    <a href="#0" class="btn btn-outline-danger btn-round"> <i class="fas fa-heart"></i> Add to
+                      Wishlist</a>
+                  </div>
+                  <div class="card-footer text-muted">
+                    {{course.pub_date}}
+                  </div>
+                </div>
+              </div>
+
+            {% endfor %}
+            <!-- Card1  -->
+
+            <!-- Card 1 End -->
+
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="section text-center">
+          <div class="row">
+            <div class="col-md-8 ml-auto nr-auto">
+              <h3 class="title"></h3>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3 class="title">News Feed</h3>
+
+          <!-- post 1 -->
+          <div class="card">
+            <div class="card-body ">
+              <h6 class="card-category text-danger">
+                <i class="material-icons">trending_up</i> Trending
+              </h6>
+              <h4 class="card-title">
+                <a href="#pablo">I joined thee VB.Net Course and i have really improved ony my Skills As a Developer</a>
+              </h4>
+
+            </div>
+            <div class="card-footer ">
+              <div class="author">
+                <a href="#pablo">
+                  <img
+                    src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=334&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D"
+                    alt="..." class="avatar img-raised">
+                  <span>Dzunisani Makamu</span>
+                </a>
+              </div>
+              <div class="stats ml-auto">
+                <i class="material-icons">favorite</i> 342 &#xB7;
+                <i class="material-icons">chat_bubble</i> 45
+              </div>
+            </div>
+          </div>
+
+          <!-- Post 2  -->
+          <div class="card">
+            <div class="card-body ">
+              <h6 class="card-category text-danger">
+                <i class="material-icons">trending_up</i> Trending
+              </h6>
+              <h4 class="card-title">
+                <a href="#pablo">To Grow Your Business Start Focusing on Your Employees</a>
+              </h4>
+
+            </div>
+            <div class="card-footer ">
+              <div class="author">
+                <a href="#pablo">
+                  <img
+                    src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=334&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D"
+                    alt="..." class="avatar img-raised">
+                  <span>Lord Alex</span>
+                </a>
+              </div>
+              <div class="stats ml-auto">
+                <i class="material-icons">favorite</i> 342 &#xB7;
+                <i class="material-icons">chat_bubble</i> 45
+              </div>
+            </div>
+          </div>
+
+          <!-- Post 3 -->
+          <div class="card">
+            <div class="card-body ">
+              <h6 class="card-category text-danger">
+                <i class="material-icons">trending_up</i> Trending
+              </h6>
+              <h4 class="card-title">
+                <a href="#pablo">Learn C++ Now and Be ready for any Real world Project</a>
+              </h4>
+
+            </div>
+            <div class="card-footer ">
+              <div class="author">
+                <a href="#pablo">
+                  <img
+                    src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=334&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D"
+                    alt="..." class="avatar img-raised">
+                  <span>Lord Alex</span>
+                </a>
+              </div>
+              <div class="stats ml-auto">
+                <i class="material-icons">favorite</i> 342 &#xB7;
+                <i class="material-icons">chat_bubble</i> 45
+              </div>
+            </div>
+          </div>
+
+          <!-- Adevert Space -->
+
+          <div class="card card-profile ml-auto mr-auto mt-5" style="max-width: 360px">
+            <div class="card-header card-header-image " style="padding-bottom: 390px ">
+              <a href="#pablo">
+                Advertsment space
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="col-md-8 ml-auto mr-auto text-center">
+      <h2 class="title">More Courses</h2>
+
+    </div>
+  </div>
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% load static from staticfiles %}
+
+{% include 'partials/_top.html' %}
+<body class="index-page sidebar-collapse">
+    <!-- Navigation  -->
+  {% include 'partials/_navbar.html' %}
+    {% block content %}
+    {% endblock%}
+{% include 'partials/_footer.html' %}
+{% include 'partials/_bottom.html' %}
