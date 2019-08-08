@@ -7,10 +7,10 @@
 
 
 <div class="page-header header-filter blur-filter blue-filter " data-parallax="true" style="background-image: url({{ course.image.url}})">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 ml-auto mr-auto">
-          <div class="brand">
+    <div class="container ">
+      <div class="row mt-5">
+        <div class="col-md-8 ml-auto mr-auto mt-5">
+          <div class="brand mt-5">
             <h1>{{ course.title }}</h1>
             <h3>Select your Course w and move from Zero to Hero Within a Short space of time.</h3>
           </div>
@@ -34,7 +34,7 @@
       </div>
     </div>
     </div>
-    <div class="main text-dark bg-warning">
+    <div class="main text-dark bg-warning main-raised">
         <div class="container text-dark">
           <div class="section text-center">
             <div class="row">
@@ -42,9 +42,10 @@
                 <h2 class="display-2">Lectures</h2>
                 <hr>
                 <section>
-                    {% for step in course.Step.all %}
+                    {% for step in course.step_set.all %}
 
-                    <h3>{{ Step.title }</h3>
+                    <h3 class="">{{ step.title }}</h3>
+                    <br>
                     <p>{{ step.description }}</p>
                     {% endfor %}
                 </section>

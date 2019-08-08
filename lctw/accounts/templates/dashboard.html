@@ -1,0 +1,200 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title%}Let's Code This Weekend{% endblock %}
+
+{% block content %}
+<div class="page-header header-filter blur-filter blue-filter " data-parallax="true"
+    style="background-image: url({% static 'img/main-background.jpg' %});background-size: cover;">
+    <div class="container ">
+        <div class="pt-5">
+            <div class="photo-container pt-5 ">
+                <img src="{% static 'img/faces/1.png' %}" class="" width="100" height="100" alt="">
+            </div>
+        </div>
+        <h3 class="display-4">{{ user.username }}</h3>
+        <h4 class="text"> Welcome to your Dashboard</h4>
+        <p class="category display-3">Student</p>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="social-description">
+                        <h2>0</h2>
+                        <p>Enrolled Courses</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="social-description">
+                        <h2>0</h2>
+                        <p>Completed Courses</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="social-description">
+                        <h2>0</h2>
+                        <p>Completed Chalenges</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div>
+                    <div class="section text-center">
+                        <div class="row ">
+                            <div class="col-md-8 ml-auto mr-auto">
+                                <h2 class="title">Your Courses</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                    {% if course %}
+                        {% for course in courses %}
+                        <div class="col-md-6">
+                            <div class="card card-nav-tabs text-center">
+                                <div class="card-body">
+                                    <img class="card-img-top" src="{{ course.image.url }}" height="200"
+                                        alt="Card image cap">
+                                    <h4 class="card-title">{{ course.title }}</h4>
+                                    <p class="card-text">With supporting text below as a natural lead-in to additional
+                                        content.</p>
+                                    <h4>Instructor : Nicolas Maluleke</h4>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-10 ml-auto">
+                                        <h4>Rating :</h4>
+                                    </div>
+                                    <div class="col-md-6 col-ms-10 ml-sm-auto">
+                                        <div class="rating">
+                                            <input type="radio" name="{{ course.id }}" id="star1"><label
+                                                for="star1"></label>
+                                            <input type="radio" name="{{ course.id }}" id="star2"><label
+                                                for="star2"></label>
+                                            <input type="radio" name="{{ course.id }}" id="star3" checked><label
+                                                for="star3"></label>
+                                            <input type="radio" name="{{ course.id }}" id="star4"><label
+                                                for="star4"></label>
+                                            <input type="radio" name="{{ course.id }}" id="star5"><label
+                                                for="star5"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-0">
+                                    <a href="{% url 'detail' course.id %}" class="btn btn-rose btn-round"> <i class="fas fa-shopping-cart"></i>View Course</a>
+                                </div>
+                                <div class="card-footer text-muted">
+                                    {{course.pub_date}}
+                                </div>
+                            </div>
+                        </div>
+
+                        {% endfor %}
+                    {% else %}
+                        <div class="col-md-12 text-center">
+                            <h2>You currently haven't enrolled in any course</h2>
+                            <p>Learn and Master Full stack Developing .Join us and learn programming from web
+                                Applications, Desktop applications to android and ios app Development from Scratch </p>
+                            <p>Join us now <a href="{% url 'courses' %}">Click Here to view available courses</a></p>
+
+                        </div>
+                    {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="section text-center">
+                    <div class="row">
+                        <div class="col-md-8 ml-auto nr-auto">
+                            <h3 class="title"></h3>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="title">Monitor your Progress</h3>
+
+                    <!-- post 1 -->
+                    <div class="card">
+                        <div class="card-body ">
+                            <h6 class="card-category text-danger">
+                                <i class="material-icons">trending_up</i> Course Engagement
+                            </h6>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 1%"
+                                    aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+
+                        </div>
+                        <div class="card-body ">
+                            <h6 class="card-category text-danger">
+                                <i class="material-icons">trending_up</i> App Engagement
+                            </h6>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped bg-info" role="progressbar"
+                                    style="width: 45%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+
+                        </div>
+
+                        <div class="card-body ">
+                            <h6 class="card-category text-success">
+                                <i class="material-icons">school</i> Completed Courses
+                            </h6>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped bg-info" role="progressbar"
+                                    style="width: 1%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="card-body ">
+                            <h6 class="card-category text-danger">
+                                <i class="material-icons">people</i> Challenges Engagement
+                            </h6>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped bg-warning" role="progressbar"
+                                    style="width: 1%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+
+                        </div>
+
+                        <div class="card-footer ">
+                            <div class="author">
+                                <a href="#pablo">
+                                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=334&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D"
+                                        alt="..." class="avatar img-raised">
+                                    <span> {{ user.username}} </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Adevert Space -->
+
+                    <div class="card card-profile ml-auto mr-auto mt-5" style="max-width: 360px">
+                        <div class="card-header card-header-image " style="padding-bottom: 390px ">
+                            <a href="#pablo">
+                                Advertsment space
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="col-md-8 ml-auto mr-auto text-center">
+            <h2 class="title">More Courses</h2>
+
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}

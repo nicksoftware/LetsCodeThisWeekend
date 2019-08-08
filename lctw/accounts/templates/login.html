@@ -5,8 +5,59 @@
 {% block content %}
 <div class="page-header clear-filter" filter-color="orange">
     <div class="page-header-image" style="background-image: url({% static 'img/main-background.jpg' %});background-size: cover;"></div>
-    <div class="content">
-
+    <div class="container ">
+        <div class="row">
+          <div class="col-md-8 ml-auto mr-auto mt-5">
+            <div class="brand mt-5">
+                <div class="container text-light">
+                    <div class="col-md-10 ml-auto mr-auto cardx ">
+                      <div class="card card-login card-plain ">
+                          {% include 'partials/_alerts.html' %}
+                        <form class="form" method="POST" >
+                          {% csrf_token %}
+                          <div class="">
+                            <div class="logo-container ">
+                              <!-- <img src="{% static 'img/apple-icon.png' %}" alt=""> -->
+                              <i class="fas fa-code fa-5x text-light"></i>
+                            </div>
+                          </div>
+                          <div class="card-body text-light">
+                            <div class="input-group no-border input-lg">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                  <i class="fas fa-user-alt"></i>
+                                </span>
+                              </div>
+                              <input type="text" class="form-control text-light" name="username" placeholder="username..." required>
+                            </div>
+                            <div class="input-group no-border input-lg">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fas fa-user-alt"></i>
+                                </span>
+                              </div>
+                              <input type="password" placeholder="Password..." name="password" class="form-control text-light"  required/>
+                            </div>
+                          </div>
+                          <div class="card-footer text-center ">
+                            <button type="submit" value="Login"  class="btn btn-primary btn-round btn-block">Login</button>
+                            <div class="pull-left">
+                              <h6>
+                                <a href="{% url 'register' %}" class="link text-light">Create Account</a>
+                              </h6>
+                            </div>
+                            <div class="pull-right">
+                              <h6>
+                                <a href="#pablo" class="link ">Need Help?</a>
+                              </h6>
+                            </div>
+                        </form>
+                        </div>
+                      </div>
+                    </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 {% endblock %}
