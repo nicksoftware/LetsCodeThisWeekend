@@ -5,4 +5,6 @@ urlpatterns = [
 
     path('', views.index, name="index"),
     path('courses/',include('courses.urls'),name="courses"),
+    path('',include('accounts.urls'),name="accounts"),
+
 ]
