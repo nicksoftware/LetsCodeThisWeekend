@@ -1,5 +1,5 @@
 from django.db import models
-
+from categories.models import Category
 # Create your models here.
 class Instructor(models.Model):
     first_name = models.CharField(max_length=30)
@@ -9,6 +9,7 @@ class Instructor(models.Model):
     bio = models.TextField()
 
 class Course(models.Model):
+    category = models.ForeignKey(Category, on_delete=models.PROTECT,default="")
     title = models.CharField(max_length=255)
     image = models.ImageField(upload_to='images/%Y/%m/%d')
     price = models.IntegerField(default=0)
@@ -23,6 +24,9 @@ class Step(models.Model):
     description = models.TextField()
     order = models.IntegerField(default=0)
     Course = models.ForeignKey(Course,on_delete=models.CASCADE)
+
+    class Meta:
+        ordering = ['order',]
 
     def __str__(self):
         return self.title

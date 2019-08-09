@@ -23,22 +23,22 @@
                         </a>
 
                         <a href="vb.php" class="dropdown-item">
-                            <i class="material-icons">school</i> Visual Basics
+                            <i class="material-icons">school</i> Programming Courses
                         </a>
                         <a href="./index.html" class="dropdown-item">
-                            <i class="material-icons">layers</i> C++
+                            <i class="material-icons">layers</i>Information Technology
                         </a>
                         <a href="./index.html" class="dropdown-item">
-                            <i class="material-icons">layers</i> PHP
+                            <i class="material-icons">layers</i> Development
                         </a>
                         <a href="./index.html" class="dropdown-item">
-                            <i class="material-icons">layers</i> Javascript
+                            <i class="material-icons ">layers</i>Cyber Security
                         </a>
                         <a href="./index.html" class="dropdown-item">
-                            <i class="material-icons">layers</i> Java
+                            <i class="material-icons">layers</i>General
                         </a>
                         <a href="./index.html" class="dropdown-item">
-                            <i class="material-icons ">layers</i> HTML
+                            <i class="material-icons">layers</i>Mathematics
                         </a>
                     </div>
 
@@ -67,30 +67,29 @@
                             <i class="fab fa-instagram fa-2x"></i>
                         </a>
 
-        {% if user.is_authenticated %}
-                       
+                        {% if user.is_authenticated %}
+
 
                         <!-- Appears When Logged in Only -->
                 <li class="nav-item active" class="nav-item">
-                
-                <a href="{% url 'dashboard' %}" 
-                {% if 'dashboard' == request.path %}
-                class="nav-link btn btn-success btn-round  bg-transparent mr-2 disabled"
-                {% else %}
-                class="nav-link btn btn-success btn-round  bg-transparent mr-2 "
-                {% endif %}
-                ><i class=" fas fa-home "></i>{{user.username}} (Dashboard)</a>
+
+                    <a href="{% url 'dashboard' %}" {% if 'dashboard' == request.path %}
+                        class="nav-link btn btn-success btn-round  bg-transparent mr-2 disabled" {% else %}
+                        class="nav-link btn btn-success btn-round  bg-transparent mr-2 " {% endif %}><i
+                            class=" fas fa-home "></i>{{user.username}} (Dashboard)</a>
                 </li>
                 <li class="nav-item">
                     <button class="nav-link btn btn-success btn-round  bg-transparent mr-2"> <i
                             class=" fas fa-envelope "></i> Messages</button>
                 </li>
-                <li class="nav-item"><a class="nav-link btn btn-success btn-round  bg-transparent mr-2"><i class="fas fa-cogs"></i>Settings</a>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-success btn-round bg-transparent mr-2"><i class="fas fa-cogs"></i>
+                        Settings</a>
                 </li>
 
                 <li class="nav-item">
-                    <button class="nav-link btn btn-success btn-round  bg-transparent mr-2"> <i
-                            class=" fas fa-shopping-cart "></i> 4</button>
+                    <a href="{% url 'cart' %}" class="nav-link btn btn-success btn-round  bg-transparent mr-2"> <i
+                            class=" fas fa-shopping-cart "></i> 3</a>
                 </li>
                 <li class="nav-item">
                     <button class="nav-link btn btn-danger bg-transparent btn-round"> <i
@@ -104,20 +103,27 @@
                         <input type="hidden">
                     </form>
                 </li>
-        {% else %}
-
+                {% else %}
+                {% if '/login' == request.path %}
                 <li class="nav-item active">
-
+                    {% else %}
                 <li class="nav-item">
-
+                    {% endif %}
                     <a class="nav-link" data-toggle="modal" data-target="#loginModel">
                         <i class="material-icons">person</i> Login
                     </a>
+                </li>
                 <li class="nav-item active">
 
-                <li class="nav-link "><a class="nav-link" href="{% url 'register' %}">
-                    <i class="material-icons">person_add</i>Register</a>
+                    {% if '/register' == request.path %}
+                <li class="nav-item active ">
+                    {% else %}
+                <li class="nav-item ">
+                    {% endif %}
+                    <a class="nav-link" href="{% url 'register' %}">
+                        <i class="material-icons">person_add</i>Register</a>
                 </li>
+
         </div>
         </li>
         {% endif %}
@@ -135,20 +141,28 @@
         <div class="modal-content bg-rose">
             <div class="modal-header bg-rose">
                 <div class="row text-center">
-                    <div class="col-md-10 text-center ml-auto mr-auto">
-                        <h3 class="">Sign in with</h3>
+                    <div class="col-md-12 text-center "style="margin-left:15%">
+                        <h3 class="text-center">Sign in with</h3>
                     </div>
-                    <div class="col-md-8 ml-auto mr-auto">
-                        <a href="#pablo" class="text-info">
-                            <i class="fab fa-facebook-square fa-3x"></i>
-                        </a>
-                        <a href="#pablo" class="">
-                            <i class="fab fa-twitter fa-3x"></i>
-                        </a>
-                        <a href="#pablo" class="text-danger">
-                            <i class="fab fa-google-plus fa-3x"></i>
-                        </a>
+                    <div class="row text-center" style="margin-left: 35%">
+                        <div class="col" style="margin-left:">
+                            <a href="#pablo" class="text-info">
+                                <i class="fab fa-facebook-square fa-3x"></i>
+                            </a>
+                        </div>
+                        <div class="col ">
+                            <a href="#pablo" class="">
+                                <i class="fab fa-twitter fa-3x"></i>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a href="#pablo" class="text-danger">
+                                <i class="fab fa-google-plus fa-3x"></i>
+                            </a>
+                        </div>
+
                     </div>
+
                 </div>
 
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -168,7 +182,8 @@
                                                 <i class="far fa-envelope"></i>
                                             </span>
                                         </div>
-                                        <input type="text" name="username" class="form-control" placeholder="username..." required>
+                                        <input type="text" name="username" class="form-control"
+                                            placeholder="username..." required>
                                     </div>
 
                                     <div class="input-group no-border">
@@ -177,7 +192,8 @@
                                                 <i class="fas fa-key"></i>
                                             </span>
                                         </div>
-                                        <input type="password" name="password" class="form-control" placeholder="Password..." required>
+                                        <input type="password" name="password" class="form-control"
+                                            placeholder="Password..." required>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-4">
@@ -196,8 +212,9 @@
                                 </div>
                         </div>
                         <div>
-                            <button type="submit" value="login" class="col text-center btn btn-primary mb-2">Login</button>
-                        
+                            <button type="submit" value="login"
+                                class="col text-center btn btn-primary mb-2">Login</button>
+
                         </div>
                         </form>
                     </div>

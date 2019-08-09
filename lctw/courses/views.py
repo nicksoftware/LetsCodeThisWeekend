@@ -1,6 +1,6 @@
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.shortcuts import render,get_object_or_404
-from .models import Course
+from .models import Course, Step
 # Create your views here.
 def course_list(request):
     courses = Course.objects.order_by('-pub_date').filter(is_published=True)
@@ -19,6 +19,13 @@ def  detail_view(request, course_id):
         'course':course
     }
     return render(request, 'courses/course_detail.html',context)
+
+def step_detail(request,course_pk, step_pk):
+    step = get_object_or_404(Step,course_id=course_pk,pk=step_pk)
+    context ={
+        'step':step
+    }
+    return render(request, 'courses/step_detail.html',context)
 
 def search(request):
     context = {

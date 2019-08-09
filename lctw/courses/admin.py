@@ -9,8 +9,10 @@ class StepInline(admin.StackedInline):
 
 class CourseAdmin(admin.ModelAdmin):
     inlines = [StepInline,]
-    list_display = ('id', 'title', 'is_published', 'price', 'pub_date')
-    list_editable = ('is_published',)
+    list_display = ('id', 'title','category', 'is_published', 'price', 'pub_date')
+    list_editable = ('is_published','category')
+    list_display_links = ('id', 'title')
+
     list_per_page = 25
     
 admin.site.register(Course,CourseAdmin)

@@ -33,6 +33,8 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
 
     'pages.apps.PagesConfig',
+    'categories.apps.CategoriesConfig',
+    'cart.apps.CartConfig',
     'accounts.apps.AccountsConfig',
     'courses.apps.CoursesConfig',
     'django.contrib.admin',
@@ -79,10 +81,16 @@ WSGI_APPLICATION = 'lctw.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME':'lctwdb',
+        'USER':'postgres',
+        'PASSWORD':'k c i n',
+        'HOST':'localhost',
+        'PORT':'5432',
+
     }
 }
+
 
 
 # Password validation

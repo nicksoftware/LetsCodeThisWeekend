@@ -22,13 +22,17 @@
               </div>
             </div>
           </form>
-          <a href="" class="btn btn-info btn-rose btn-round ">Start Now</a>
+          <a href=" {% url 'courses' %} " class="btn btn-info btn-rose btn-round ">Start Now</a>
         </div>
       </div>
     </div>
   </div>
 </div>
-<div class="main">
+<!-- Breadcrumb -->
+
+
+<div class="main  mt-3">
+  
   <div class="container">
     <div class="row">
       <div class="col-md-8">
@@ -39,8 +43,23 @@
                 <h2 class="title">Recently updated Courses</h2>
               </div>
             </div>
+
           </div>
           <div class="row">
+              <div class="row ml-2">
+                  <div>
+                    <button class="btn btn-primary px-1 py-3 active" onlick="filterSelection('all')">Show All</button>
+                    <button class="btn btn-primary px-1 py-3" onlick="filterSelection('general')">General</button>
+                    <button class="btn btn-primary px-1 py-3" onlick="filterSelection('computer_science')">Computer
+                      Science</button>
+                    <button class="btn btn-primary px-1 py-3" onlick="filterSelection('programming')">Programming</button>
+                    <button class="btn btn-primary px-1 py-3" onlick="filterSelection('development')">Development</button>
+                    <button class="btn btn-primary px-1 py-3" onlick="filterSelection('gaming')">Gaming</button>
+                    <button class="btn btn-primary px-1 py-3" onlick="filterSelection('IT')">Information tech</button>
+                    <button class="btn btn-primary px-1 py-3" onlick="filterSelection('cyber_security')">Cyber
+                      Security</button>
+                  </div>
+                </div>
             {% for course in courses %}
             <div class="col-md-6">
                 <div class="card card-nav-tabs text-center">
@@ -48,6 +67,7 @@
                     <img class="card-img-top" src="{{ course.image.url }}" height="200" alt="Card image cap">
                     <h4 class="card-title">{{ course.title }}</h4>
                     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <p class="card-title ">Price  :R {{course.price}}.00 </p>
                     <h4>Instructor : Nicolas Maluleke</h4>
                   </div>
                   <div class="row">
@@ -64,6 +84,7 @@
                       </div>
                     </div>
                   </div>
+
                   <div class="mt-0">
                     <a href="#0" class="btn btn-rose btn-round"> <i class="fas fa-shopping-cart"></i> Add to Cart</a>
                     <a href="#0" class="btn btn-outline-danger btn-round"> <i class="fas fa-heart"></i> Add to
