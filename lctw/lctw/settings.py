@@ -25,7 +25,7 @@ SECRET_KEY = '(0a1gz!x*dqazhn)m3l*l&=wf91^-+xu0eh+o!!lm0utq5cghh'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.8.172','localhost','127.0.0.1']
 
 
 # Application definition
@@ -33,7 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
 
     'pages.apps.PagesConfig',
-    'categories.apps.CategoriesConfig',
+    'blog.apps.BlogConfig',
     'cart.apps.CartConfig',
     'accounts.apps.AccountsConfig',
     'courses.apps.CoursesConfig',

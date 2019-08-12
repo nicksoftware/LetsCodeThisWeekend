@@ -1,8 +1,5 @@
 from django.contrib import admin
-from .models import Course
-from .models import Step
-from .models import Instructor
-
+from .models import Course,Step, Instructor, Category
 
 class StepInline(admin.StackedInline):
     model = Step
@@ -14,6 +11,6 @@ class CourseAdmin(admin.ModelAdmin):
     list_display_links = ('id', 'title')
 
     list_per_page = 25
-    
-admin.site.register(Course,CourseAdmin)
 admin.site.register(Instructor)
+admin.site.register(Category) 
+admin.site.register(Course,CourseAdmin)

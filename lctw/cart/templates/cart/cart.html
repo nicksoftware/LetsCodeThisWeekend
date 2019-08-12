@@ -6,7 +6,7 @@
   ;background-size: cover;">
     <div class="container text-light">
         <div class="section text-center">
-            <div class="row ">
+            <div class="row  mt-5">
                 <div class="col-md-8 ml-auto mr-auto course-list-title">
                     <h2 class="title text-rose">Welcome to your Cart</h2>
                     <p class="lead text-white">Manage your Basket</p>
@@ -39,139 +39,160 @@
         <!-- For demo purpose -->
         <div class="container text-dark py-5 text-center">
             <h1 class="display-4">shopping cart</h1>
-            <p class="lead mb-0">Fully Manage your Courses ,buy and enroll now   </p>
+            <p class="lead mb-0">Fully Manage your Courses ,buy and enroll now </p>
         </div>
         <!-- End -->
 
         <div class="pb-5">
             <div class="row">
 
-            <div class="container main-raised mt-3  col-md-8">
-                <div class="row">
-                    <div class="col-lg-12 px-5 pt-5 bg-white  rounded shadow-sm mb-5">
+                <div class="container main-raised mt-3  col-md-8">
+                    <div class="row">
+                        <div class="col-lg-12 px-5 pt-5 bg-white  rounded shadow-sm mb-5">
 
-                        <!-- Shopping cart table -->
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" class="border-0 bg-light">
-                                            <div class="p-2 px-3 text-uppercase">Course</div>
-                                        </th>
-                                        <th scope="col" class="border-0 bg-light">
-                                            <div class="py-2 text-uppercase">Price</div>
-                                        </th>
-                                        <th scope="col" class="border-0 bg-light">
-                                            <div class="py-2 text-uppercase">Coupon Code</div>
-                                        </th>
-                                        <th scope="col" class="border-0 bg-light">
-                                            <div class="py-2 text-uppercase">Remove</div>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row" class="border-0">
-                                            <div class="p-2">
-                                                <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-1_zrifhn.jpg"
-                                                    alt="" width="70" class="img-fluid rounded shadow-sm">
-                                                <div class="ml-3 d-inline-block align-middle">
-                                                    <h5 class="mb-0"> <a href="#"
-                                                            class="text-dark d-inline-block align-middle">Data strucutures</a></h5><span
-                                                        class="text-muted font-weight-normal c d-block">Category:
-                                                        Computer Science</span>
+                            <!-- Shopping cart table -->
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" class="border-0 bg-light">
+                                                <div class="p-2 px-3 text-uppercase">Course</div>
+                                            </th>
+                                            <th scope="col" class="border-0 bg-light">
+                                                <div class="py-2 text-uppercase">Price</div>
+                                            </th>
+                                            <th scope="col" class="border-0 bg-light">
+                                                <div class="py-2 text-uppercase">Coupon Code</div>
+                                            </th>
+                                            <th scope="col" class="border-0 bg-light">
+                                                <div class="py-2 text-uppercase">Remove</div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row" class="border-0">
+                                                <div class="p-2">
+                                                    <img src="{% static 'img/What-Is-Back-End-Development.png' %}"
+                                                        alt="" width="70" class="img-fluid rounded shadow-sm">
+                                                    <div class="ml-3 d-inline-block align-middle">
+                                                        <h5 class="mb-0"> <a href="#"
+                                                                class="text-dark d-inline-block align-middle">Data
+                                                                strucutures</a></h5><span
+                                                            class="text-muted font-weight-normal c d-block">Category:
+                                                            Computer Science</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </th>
-                                        <td class="border-0 align-middle"><strong>R120.00</strong></td>
-                                        <td class="border-0 align-middle"><strong><input type="text" placeholder="Apply coupon" aria-describedby="button-addon3"
-                                            class="form-control border-0"></strong></td>
-                                        <td class="border-0 align-middle"><a href="#" class="text-dark"><i
-                                                    class="fa fa-trash text-danger"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            <div class="p-2">
-                                                <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-3_cexmhn.jpg"
-                                                    alt="" width="70" class="img-fluid rounded shadow-sm">
-                                                <div class="ml-3 d-inline-block align-middle">
-                                                    <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">Learn Python </a></h5><span
-                                                        class="text-muted font-weight-normal ">Category:
-                                                        Programming Languages</span>
+                                            </th>
+                                            <td class="border-0 align-middle"><strong>R120.00</strong></td>
+                                            <td class="border-0 align-middle"><strong><input type="text"
+                                                        placeholder="Apply coupon" aria-describedby="button-addon3"
+                                                        class="form-control border-0"></strong></td>
+                                            <td class="border-0 align-middle"><a href="#" class="text-dark"><i
+                                                        class="fa fa-trash text-danger"></i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                <div class="p-2">
+                                                    <img src="{% static 'img/Front-end banner3.png' %}" alt=""
+                                                        width="70" class="img-fluid rounded shadow-sm">
+                                                    <div class="ml-3 d-inline-block align-middle">
+                                                        <h5 class="mb-0"><a href="#"
+                                                                class="text-dark d-inline-block">Learn Python </a></h5>
+                                                        <span class="text-muted font-weight-normal ">Category:
+                                                            Programming Languages</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </th>
-                                        <td class="align-middle"><strong>R200.00</strong></td>
-                                        <td class="align-middle"><strong><input type="text" placeholder="Apply coupon" aria-describedby="button-addon3"
-                                            class="form-control border-0"></strong></td>
-                                        <td class="align-middle"><a href="#" class="text-dark"><i
-                                                    class="fa fa-trash text-danger"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            <div class="p-2">
-                                                <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-2_qxjis2.jpg"
-                                                    alt="" width="70" class="img-fluid rounded shadow-sm">
-                                                <div class="ml-3 d-inline-block align-middle">
-                                                    <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block">Full-Stack Development</a></h5><span
-                                                        class="text-muted font-weight-normal ">Category:Development</span>
+                                            </th>
+                                            <td class="align-middle"><strong>R200.00</strong></td>
+                                            <td class="align-middle"><strong><input type="text"
+                                                        placeholder="Apply coupon" aria-describedby="button-addon3"
+                                                        class="form-control border-0"></strong></td>
+                                            <td class="align-middle"><a href="#" class="text-dark"><i
+                                                        class="fa fa-trash text-danger"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                <div class="p-2">
+                                                    <img src="{% static 'img/sta-je-javascript.jpg' %}" alt=""
+                                                        width="70" class="img-fluid rounded shadow-sm">
+                                                    <div class="ml-3 d-inline-block align-middle">
+                                                        <h5 class="mb-0"> <a href="#"
+                                                                class="text-dark d-inline-block">Full-Stack
+                                                                Development</a></h5><span
+                                                            class="text-muted font-weight-normal ">Category:Development</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        <td class="align-middle"><strong>R150.00</strong></td>
-                                        <td class="align-middle"><strong><input type="text" placeholder="Apply coupon" aria-describedby="button-addon3"
-                                            class="form-control border-0"></strong></td>
-                                        <td class="align-middle"><a href="#" class="text-dark"><i
-                                                    class="fa fa-trash text-danger"></i></a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- End -->
-                    </div>
-                </div>
-                <div class="row pb-1 px-4 bg-white rounded shadow-sm">
-                    <div class="col-lg-12">
-                        <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Whole basket discount special Coupon code</div>
-                        <div class="p-4">
-                            <p class="font-italic mb-4">If you have a coupon code, please enter it in the box below</p>
-                            <div class="input-group mb-4 border rounded-pill p-2">
-                                <input type="text" placeholder="Apply coupon" aria-describedby="button-addon3"
-                                    class="form-control border-0">
-                                <div class="input-group-append border-0">
-                                    <button id="button-addon3" type="button" class="btn btn-success px-4 rounded-pill"><i
-                                            class="fa fa-gift mr-2 "></i>Apply coupon</button>
+                                            <td class="align-middle"><strong>R150.00</strong></td>
+                                            <td class="align-middle"><strong><input type="text"
+                                                        placeholder="Apply coupon" aria-describedby="button-addon3"
+                                                        class="form-control border-0"></strong></td>
+                                            <td class="align-middle"><a href="#" class="text-dark"><i
+                                                        class="fa fa-trash text-danger"></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- End -->
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <a href="" class="btn btn-outline-primary">Continue Shopping</a>
+                                </div>
+                                <div class="col-md-4">
+                                    <h1></h1>
+                                </div>
+                                <div class="col-md-4">
+                                    <a href="" class="btn btn-outline-primary">Update Cart</a>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="row pb-1 px-4 bg-white rounded shadow-sm">
+                        <div class="col-lg-12">
+                            <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Whole basket
+                                discount special Coupon code</div>
+                            <div class="p-4">
+                                <p class="font-italic mb-4">If you have a coupon code, please enter it in the box below
+                                </p>
+                                <div class="input-group mb-4 border rounded-pill p-2">
+                                    <input type="text" placeholder="Apply coupon" aria-describedby="button-addon3"
+                                        class="form-control border-0">
+                                    <div class="input-group-append border-0">
+                                        <button id="button-addon3" type="button"
+                                            class="btn btn-success px-4 rounded-pill"><i
+                                                class="fa fa-gift mr-2 "></i>Apply coupon</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-3 ">
+                    <div class="">
+                        <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary
+                        </div>
+                        <div class="p-4">
+                            <p class="font-italic mb-4">Shipping and additional costs are calculated based on values you
+                                have entered.</p>
+                            <ul class="list-unstyled mb-4">
+                                <li class="d-flex justify-content-between py-3 border-bottom"><strong
+                                        class="text-muted">Order Subtotal </strong><strong>R780.00</strong></li>
+                                <li class="d-flex justify-content-between py-3 border-bottom"><strong
+                                        class="text-muted">Tax</strong><strong>R0.00</strong></li>
+                                <li class="d-flex justify-content-between py-3 border-bottom"><strong
+                                        class="text-muted">Total</strong>
+                                    <h5 class="font-weight-bold">R780.00</h5>
+                                </li>
+                            </ul><a href="#" class="btn btn-rose rounded-pill py-2 btn-block">Procceed to checkout</a>
+                        </div>
+                    </div>
                 </div>
 
             </div>
-
-            <div class="col-md-3 ">
-                    <div class="">
-                            <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary
-                            </div>
-                            <div class="p-4">
-                                <p class="font-italic mb-4">Shipping and additional costs are calculated based on values you
-                                    have entered.</p>
-                                <ul class="list-unstyled mb-4">
-                                    <li class="d-flex justify-content-between py-3 border-bottom"><strong
-                                            class="text-muted">Order Subtotal </strong><strong>R780.00</strong></li>
-                                    <li class="d-flex justify-content-between py-3 border-bottom"><strong
-                                            class="text-muted">Tax</strong><strong>R0.00</strong></li>
-                                    <li class="d-flex justify-content-between py-3 border-bottom"><strong
-                                            class="text-muted">Total</strong>
-                                        <h5 class="font-weight-bold">R780.00</h5>
-                                    </li>
-                                </ul><a href="#" class="btn btn-rose rounded-pill py-2 btn-block">Procceed to checkout</a>
-                            </div>
-                        </div>
-            </div>
-
-        </div>
 
 
         </div>

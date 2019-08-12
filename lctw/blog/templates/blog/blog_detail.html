@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+{% load static  %}
+
+{% block title %}{% endblock %}
+{% block content %}
+<div class="main bg-secondary " style="background-image: url({{ post.main_image.url }}); background-repeat: no-repeat;
+  ;background-size: cover;">
+    <div class="container text-light">
+        <div class="section text-center">
+            <div class="row mt-5">
+                <div class="col-md-8 ml-auto mr-auto course-list-title">
+                    <h2 class="title text-white">{{ post.title }}</h2>
+                    <p class="lead text-white">{{ post.summary }}</p>
+                    <hr class="text-rose">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</div>
+<!-- Breadcrumb -->
+<section id="bc" class="mt-3   main-raised">
+    <div class="container ">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href=" {% url 'index' %} ">
+                        <i class="fas fa-home"></i> Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                        <a href=" {% url 'blog' %} ">
+                            <i class="fas fa-blog"></i> Blog</a>
+                    </li>
+                    <li aria-current="page" class="breadcrumb-item active">{{ post.title}}</li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+<section class="main main-raised mt-3" >
+        <div id="all">
+                <div id="content">
+                  <div class="container">
+                    <div class="row">
+                      <div id="blog-post" class="col-lg-9">
+                        <div class="box">
+                          <h1>{{ post.title}}</h1>
+                          <p class="author-date">By <a href="#">{{ post.author }}</a> | {{ post.pub_date}} </p>
+                          <p class="lead">{{post.summary}}</p>
+                          <div id="post-content">
+                            <p>{{ post.content }}</p>
+                            <p><img src="{{ post.main_image.url }}" alt="Example blog post alt" class="img-fluid"></p>
+                            
+                            {% for story in post.story_set.all %}
+                            <h2>{{ story.title }}</h2>
+                            <p> {{story.content}} </p>
+                            <p><img src="{{ story.image.url }}" alt="Example blog post alt" class="img-fluid"></p>
+                           {% endfor %}
+                            </div>
+                          <!-- /#post-content-->
+                          <div id="comments">
+                            <h4>2 comments</h4>
+                            <div class="row comment">
+                              <div class="col-md-3 col-lg-2 text-center text-md-center">
+                                <p><img src="{% static 'img/faces/avatar.jpg' %}" alt="" class="img-fluid rounded-circle"></p>
+                              </div>
+                              <div class="col-md-9 col-lg-10">
+                                <h5>Julie Alma</h5>
+                                <p class="posted"><i class="fa fa-clock-o"></i> September 23, 2011 at 12:00 am</p>
+                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                                <p class="reply"><a href="#"><i class="fa fa-reply"></i> Reply</a></p>
+                              </div>
+                            </div>
+                            <!-- /.comment-->
+                            <div class="row comment last">
+                              <div class="col-md-3 col-lg-2 text-center text-md-center">
+                                <p><img src="{% static 'img/faces/kendall.jpg' %}" alt="" class="img-fluid rounded-circle"></p>
+                              </div>
+                              <div class="col-md-9 col-lg-10">
+                                <h5>Louise Armero</h5>
+                                <p class="posted"><i class="fa fa-clock-o"></i> September 23, 2012 at 12:00 am</p>
+                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                                <p class="reply"><a href="#"><i class="fa fa-reply"></i> Reply</a></p>
+                              </div>
+                            </div>
+                            <!-- /.comment-->
+                          </div>
+                          <!-- /#comments-->
+                          <div id="comment-form">
+                            <h4>Leave comment</h4>
+                            <form>
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="name">Name <span class="required">*</span></label>
+                                    <input id="name" type="text" class="form-control">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="email">Email <span class="required">*</span></label>
+                                    <input id="email" type="text" class="form-control">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-12">
+                                  <div class="form-group">
+                                    <label for="comment">Comment <span class="required">*</span></label>
+                                    <textarea id="comment" rows="4" class="form-control"></textarea>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-12 text-right">
+                                  <button class="btn btn-primary"> Post comment</button>
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+                          <!-- /#comment-form-->
+                        </div>
+                        <!-- /.box-->
+                      </div>
+                      <!-- /#blog-post-->
+                      <div class="col-lg-3">
+                            <!--
+                            *** BLOG MENU ***
+                            _________________________________________________________
+                            -->
+                            <div class="card sidebar-menu mb-4 ">
+                              <div class="container text-center  " style="background-color: #E9ECEF;">
+                                <h3 class="h4  title">Blog</h3>
+                              
+                              </div>
+                 
+                              <div class="card-body text-white">
+                                <ul class="nav flex-column nav-pills">
+                                    {% for cat in categories %}
+                                    <li><a href="blog.html" class="nav-link"> {{cat.title}} </a></li>
+                                    {% endfor %}
+                                </ul>
+                                <hr>
+                                <ul  class="nav flex-column nav-pills">
+                                    <li><a href="" class="nav-link">Courses</a></li>
+                                    <li><a href="" class="nav-link">Contact</a></li>
+                                    <li><a href="" class="nav-link">About Us</a></li>
+                                </ul>
+                              </div>
+                            </div>
+                            <!-- /.col-lg-3-->
+                            <!-- *** BLOG MENU END ***-->
+                            <div class="banner"><a href="#"><img src="{% static 'img/vb-bg.png' %}" alt="sales " class="img-fluid"></a></div>
+                          </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+</section>
+{% endblock %}

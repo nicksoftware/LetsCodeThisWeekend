@@ -7,8 +7,8 @@
 <div class="main bg-secondary " style="background-image: url({% static 'img/main-background.jpg' %}); background-repeat: no-repeat;
   background-attachment: fixed;background-size: cover;">
   <div class="container text-light">
-    <div class="section text-center">
-      <div class="row ">
+    <div class="section text-center ">
+      <div class="row mt-5 ">
         <div class="col-md-8 ml-auto mr-auto course-list-title">
           <h2 class="title text-rose">Select your Course</h2>
           <p class="lead text-white">Enroll Now and Build your Skills</p>
@@ -60,15 +60,9 @@
             <div class="row">
               <div>
                 <button class="btn btn-primary px-4 py-3 active" onlick="filterSelection('all')">Show All</button>
-                <button class="btn btn-primary px-4 py-3" onlick="filterSelection('general')">General</button>
-                <button class="btn btn-primary px-4 py-3" onlick="filterSelection('computer_science')">Computer
-                  Science</button>
-                <button class="btn btn-primary px-4 py-3" onlick="filterSelection('programming')">Programming</button>
-                <button class="btn btn-primary px-4 py-3" onlick="filterSelection('development')">Development</button>
-                <button class="btn btn-primary px-4 py-3" onlick="filterSelection('gaming')">Gaming</button>
-                <button class="btn btn-primary px-4 py-3" onlick="filterSelection('IT')">Information tech</button>
-                <button class="btn btn-primary px-4 py-3" onlick="filterSelection('cyber_security')">Cyber
-                  Security</button>
+                {% for cat in category %}
+                <button class="btn btn-primary px-4 py-3" onlick="filterSelection('{{cat.title}}')">{{cat.title}}</button>
+                {% endfor %}
               </div>
             </div>
           </div>
@@ -89,7 +83,7 @@
                   <div class="col-md-4 col-sm-10 ml-auto">
                     <h4>Rating :</h4>
                   </div>
-                  <div class="col-md-6 col-ms-10 ml-sm-auto">
+                  <div class=" container col-md-6 col-12 ml-5 my-4">
                     <div class="rating">
                       <input type="radio" name="{{course.id }}" id="star1"><label for="star1"></label>
                       <input type="radio" name="{{course.id }}" id="star2"><label for="star2"></label>
@@ -167,12 +161,32 @@
   
 </div>
 
-<section class=" content-main main-raised mt-3">
+<section  class="  mt-3">
     <div class="container mt-3">
-        <div class="col-md-8 ml-auto mr-auto  text-center">
-          <h2 class="title">More Courses</h2>
-          <div class="p-5">
-            <h3>There will be Course  slider Here</h3>
+        <div class="col-md-12 ml-auto mr-auto  text-center">
+          <h2 class="title">Courses on special</h2>
+          <div class="">
+              <div id="courses" class="product-slider owl-carousel owl-theme">
+                  {% for course in courses %}
+                  <div class="item">
+                    <div class="container" >
+                      <!-- Card -->
+                      <div class="card card-image "style="background-image: url({{ course.image.url }});" >
+      
+                        <!-- Content -->
+                        <div class="text-white shade text-center d-flex align-items-center rgba-black-strong ">
+                          <div class="  ">
+                            <h4 class=""><i class="fas fa-chart-pie"></i> {{ course.category }}</h4>
+                            <h3 class="card-title text-white"><strong> {{course.title}} </strong></h3>
+                            <a class="btn btn-rose  "><i class="fas fa-clone left"></i> View</a>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Card -->
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
           </div>
         </div>
       </div>

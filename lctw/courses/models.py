@@ -1,12 +1,26 @@
 from django.db import models
-from categories.models import Category
 # Create your models here.
 class Instructor(models.Model):
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
-    email = models.EmailField()
-    languages = models.CharField(max_length=200)
+    name =models.ForeignKey('auth.User',on_delete=models.CASCADE)
+    SKILLS = [
+    ('FE', 'Front-end'),
+    ('BE', 'Back-end'),
+    ('FS', 'Full-Stack'),
+    ('IT', 'IT-Specialist'),
+]
+    skills = models.CharField(max_length=2, choices=SKILLS,blank=True)
     bio = models.TextField()
+    
+    def __str__(self):
+        return self.name.username
+
+class Category(models.Model):
+    title = models.CharField(max_length=30,default="")
+    description = models.TextField()
+
+    def __str__(self):
+        return self.title
+
 
 class Course(models.Model):
     category = models.ForeignKey(Category, on_delete=models.PROTECT,default="")

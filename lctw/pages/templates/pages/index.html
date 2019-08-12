@@ -29,23 +29,45 @@
   </div>
 </div>
 <!-- Breadcrumb -->
-
+<section class="main">
+    <div>
+        <div id="main-slider" class="product-slider owl-carousel owl-theme">
+            {% for course in courses %}
+            <div class="item">
+              <div class=" "  >
+                <!-- Card -->
+                <div class="card card-image main-slide img-fluid"style="background-image: url({{ course.image.url }});">
+                  <!-- Content -->
+                  <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+                    <div class="shade p-5">
+                      <h5 class="pink-text p-4"><i class="fas fa-chart-pie"></i> {{ course.category }}</h5>
+                      <h3 class="card-title text-white p-2"><strong> {{course.title}} </strong></h3>
+  
+                      <a class="btn btn-rose"><i class="fas fa-clone left"></i> View</a>
+                    </div>
+                  </div>
+  
+                </div>
+                <!-- Card -->
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+    </div>
+  </section>
 
 <div class="main  mt-3">
-  
   <div class="container">
     <div class="row">
       <div class="col-md-8">
-        <div>
-          <div class="section text-center">
-            <div class="row ">
-              <div class="col-md-8 ml-auto mr-auto">
-                <h2 class="title">Recently updated Courses</h2>
+        <div class="section m-0">
+          <div class="row">
+              <div class="col-md-12 ml-auto mr-auto">
+                <h2 class="display-2 text center">Recently updated Courses</h2>
               </div>
             </div>
-
-          </div>
           <div class="row">
+              
               <div class="row ml-2">
                   <div>
                     <button class="btn btn-primary px-1 py-3 active" onlick="filterSelection('all')">Show All</button>
@@ -60,6 +82,7 @@
                       Security</button>
                   </div>
                 </div>
+                {% if courses %}
             {% for course in courses %}
             <div class="col-md-6">
                 <div class="card card-nav-tabs text-center">
@@ -74,7 +97,7 @@
                     <div class="col-md-4 col-sm-10 ml-auto">
                       <h4>Rating :</h4>
                     </div>
-                    <div class="col-md-6 col-ms-10 ml-sm-auto">
+                    <div class="col-md-6 col-12 ml-5 my-4">
                       <div class="rating">
                         <input type="radio" name="{{ course.id }}" id="star1"><label for="star1"></label>
                         <input type="radio" name="{{ course.id }}" id="star2"><label for="star2"></label>
@@ -97,6 +120,13 @@
               </div>
 
             {% endfor %}
+            {% else  %}
+            <div class="col-md-12 mt-5">
+              <div class="container text-center">
+                <h3>Sorry there are no Posts Available at the moment, please try again later..</h3>
+              </div>
+            </div>
+            {% endif %}
             <!-- Card1  -->
 
             <!-- Card 1 End -->
@@ -115,87 +145,39 @@
         </div>
         <div>
           <h3 class="title">News Feed</h3>
-
-          <!-- post 1 -->
-          <div class="card">
-            <div class="card-body ">
-              <h6 class="card-category text-danger">
-                <i class="material-icons">trending_up</i> Trending
-              </h6>
-              <h4 class="card-title">
-                <a href="#pablo">I joined thee VB.Net Course and i have really improved ony my Skills As a Developer</a>
-              </h4>
-
-            </div>
-            <div class="card-footer ">
-              <div class="author">
-                <a href="#pablo">
-                  <img
-                    src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=334&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D"
-                    alt="..." class="avatar img-raised">
-                  <span>Dzunisani Makamu</span>
-                </a>
+          
+          {% if posts %}
+          {% for post in posts %}
+                    <!-- post 1 -->
+                    <div class="card">
+                        <div class="card-body ">
+                          <h6 class="card-category text-danger">
+                            <i class="material-icons">trending_up</i> Trending
+                          </h6>
+                          <h4 class="card-title">
+                            <a href="#pablo">{{ post.title }}</h4>
+                        </div>
+                        <div class="card-footer ">
+                          <div class="author">
+                            <a href="#pablo">
+                              <img
+                                src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=334&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D"
+                                alt="..." class="avatar img-raised">
+                              <span>{{ post.author.first_name }} {{ post.author.last_name }}</span>
+                            </a>
+                          </div>
+                          <div class="stats ml-auto">
+                            <i class="material-icons">favorite</i> 342 &#xB7;
+                            <i class="material-icons">chat_bubble</i> 45
+                          </div>
+                        </div>
+                      </div>
+          {% endfor %}
+          {% else %}
+              <div class="container">
+                <h4>Sorry there are no Posts Available at the moment</h2>
               </div>
-              <div class="stats ml-auto">
-                <i class="material-icons">favorite</i> 342 &#xB7;
-                <i class="material-icons">chat_bubble</i> 45
-              </div>
-            </div>
-          </div>
-
-          <!-- Post 2  -->
-          <div class="card">
-            <div class="card-body ">
-              <h6 class="card-category text-danger">
-                <i class="material-icons">trending_up</i> Trending
-              </h6>
-              <h4 class="card-title">
-                <a href="#pablo">To Grow Your Business Start Focusing on Your Employees</a>
-              </h4>
-
-            </div>
-            <div class="card-footer ">
-              <div class="author">
-                <a href="#pablo">
-                  <img
-                    src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=334&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D"
-                    alt="..." class="avatar img-raised">
-                  <span>Lord Alex</span>
-                </a>
-              </div>
-              <div class="stats ml-auto">
-                <i class="material-icons">favorite</i> 342 &#xB7;
-                <i class="material-icons">chat_bubble</i> 45
-              </div>
-            </div>
-          </div>
-
-          <!-- Post 3 -->
-          <div class="card">
-            <div class="card-body ">
-              <h6 class="card-category text-danger">
-                <i class="material-icons">trending_up</i> Trending
-              </h6>
-              <h4 class="card-title">
-                <a href="#pablo">Learn C++ Now and Be ready for any Real world Project</a>
-              </h4>
-
-            </div>
-            <div class="card-footer ">
-              <div class="author">
-                <a href="#pablo">
-                  <img
-                    src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=334&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D"
-                    alt="..." class="avatar img-raised">
-                  <span>Lord Alex</span>
-                </a>
-              </div>
-              <div class="stats ml-auto">
-                <i class="material-icons">favorite</i> 342 &#xB7;
-                <i class="material-icons">chat_bubble</i> 45
-              </div>
-            </div>
-          </div>
+          {% endif %}
 
           <!-- Adevert Space -->
 
@@ -213,13 +195,42 @@
   </div>
 
   <div class="container">
-    <div class="col-md-8 ml-auto mr-auto text-center">
-      <h2 class="title">More Courses</h2>
-
+    <div class="col-md-12 ml-auto mr-auto text-center">
+      <div class="section ">
+          <div class="container">
+            <div>
+                <h2 class="title m-0">Popular Challenges</h2>
+            </div>
+            <div id="product-slider" class="product-slider owl-carousel owl-theme">
+              {% for course in courses %}
+              <div class="item">
+                <div class="container" >
+                  <!-- Card -->
+                  <div class="card card-image"style="background-image: url({{ course.image.url }});" height="200">
+  
+                    <!-- Content -->
+                    <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+                      <div class="course-list-title px-3">
+                        <h4 class=""><i class="fas fa-chart-pie"></i> {{ course.category }}</h4>
+                        <h3 class="card-title text-rose"><strong> {{course.title}} </strong></h3>
+                        <a class="btn btn-rose  mb-2"><i class="fas fa-clone left"></i> View</a>
+                      </div>
+                    </div>
+  
+                  </div>
+                  <!-- Card -->
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
     </div>
   </div>
 
 </div>
-
+<script>
+    
+  
+</script>
 
 {% endblock %}

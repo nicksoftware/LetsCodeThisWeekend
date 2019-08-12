@@ -1,0 +1,181 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{% endblock %}
+
+{% block content %}
+<div class="main bg-secondary " style="background-image: url({% static 'img/main-background.jpg' %}); background-repeat: no-repeat;
+  ;background-size: cover;">
+    <div class="container text-light">
+        <div class="section text-center ">
+            <div class="row mt-5">
+                <div class="col-md-8 ml-auto mr-auto course-list-title">
+                    <h2 class="title text-light">Account Settings</h2>
+                    
+                    <hr class="text-rose">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</div>
+<!-- Breadcrumb -->
+<section id="bc" class="mt-3   main-raised">
+    <div class="container ">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href=" {% url 'index' %} ">
+                        <i class="fas fa-home"></i> Home</a>
+                </li>
+                <li class="breadcrumb-item active"> Account Settings</li>
+            </ol>
+        </nav>
+    </div>
+</section>
+<div id="  " class="main bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <!--
+                *** CUSTOMER MENU ***
+                _________________________________________________________
+                -->
+                <div class="card sidebar-menu">
+                    <div class=" ">
+                        <h3 class="h4 card-title text-center">Management </h3>
+                    </div>
+                    <hr>
+                    <div class="card-body">
+                        <ul class="nav nav-pills flex-column">
+                            <a href="{% url 'cart' %}" class="nav-link "><i
+                                    class="fa fa-shopping-cart"></i> Cart</a>
+                                    <a href="customer-wishlist.html" class="nav-link"><i class="fa fa-heart"></i> My wishlist</a><a
+                                href="customer-account.html" class="nav-link btn-primary active"><i class="fa fa-user"></i> My
+                                account</a><a href="index.html" class="nav-link"><i class="fas fa-sign-out-alt"></i>
+                                Logout</a></ul>
+                    </div>
+                </div>
+                <!-- /.col-lg-3-->
+                <!-- *** CUSTOMER MENU END ***-->
+            </div>
+            <div class="col-lg-8 mt-3 main-raised ">
+                <div class="box">
+                    <h1>My account</h1>
+                    <p class="lead">Change your personal details or your password here.</p>
+                    <p class="text-muted">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
+                        turpis egestas.</p>
+                    <h3>Change password</h3>
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="password_old">Old password</label>
+                                    <input id="password_old" type="password" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="password_1">New password</label>
+                                    <input id="password_1" type="password" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="password_2">Retype new password</label>
+                                    <input id="password_2" type="password" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.row-->
+                        <div class="col-md-12 text-center">
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save new
+                                password</button>
+                        </div>
+                    </form>
+                    <h3 class="mt-5">Personal details</h3>
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="firstname">Firstname</label>
+                                    <input id="firstname" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="lastname">Lastname</label>
+                                    <input id="lastname" type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.row-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="company">Company</label>
+                                    <input id="company" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="street">Street</label>
+                                    <input id="street" type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.row-->
+                        <div class="row">
+                            <div class="col-md-6 col-lg-3">
+                                <div class="form-group">
+                                    <label for="city">Company</label>
+                                    <input id="city" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="form-group">
+                                    <label for="zip">ZIP</label>
+                                    <input id="zip" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="form-group">
+                                    <label for="state">State</label>
+                                    <select id="state" class="form-control"></select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="form-group">
+                                    <label for="country">Country</label>
+                                    <select id="country" class="form-control"></select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="phone">Telephone</label>
+                                    <input id="phone" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input id="email" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save
+                                    changes</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

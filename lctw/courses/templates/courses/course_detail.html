@@ -27,7 +27,31 @@
         <div class="col-md-12 ml-auto mr-auto">
           <article>
             <h2 class="title">{{ course.title }}</h2>
-            <p class=" text-dark">{{ course.description }}</p>
+          <div id="" class="box">
+              <h4 class="title">Course Description</h4>
+              <p class=" text-dark">{{ course.description }}</p>
+              <h4 class="title" >Requirements</h4>
+              <div class="container col-md-4"><ul>
+                  <li>No Coding exprience</li>
+                  <li>Hunger to Learn</li>
+                </ul></div>
+              <h4 class="title" >What you will Learn | Gain </h4>
+              <div class="container col-md-4">
+                  <ul class=" ">
+                      <li>Software Design</li>
+                      <li>Javascript Programming Language</li>
+                      <li>To Create Real world applications</li>
+                    </ul>
+              </div>
+              <blockquote>
+                <p><em>when you don't create things, you become defined by your tastes rather than ability"</em></p>
+              </blockquote>
+              <hr>
+              <div class="social">
+                <h4>Share with your friends</h4>
+                <p><a href="#" class="external facebook"><i class="fab fa-facebook"></i></a><a href="#" class="external gplus"><i class="fab fa-google-plus"></i></a><a href="#" class="external twitter"><i class="fab fa-twitter"></i></a><a href="#" class="email"><i class="fa fa-envelope"></i></a></p>
+              </div>
+            </div>
           </article>
           <hr>
         </div>
@@ -43,6 +67,7 @@
           <h2 class="display-2">Lecture Content</h2>
           <hr>
           <section>
+          {% if course.step_set.all %}
             {% for step in course.step_set.all %}
             <button class="accordion mb-1 pb-2">Section {{step.order}} {{ step.title }}</button>
             <div class="panel bg-light p-5">
@@ -54,6 +79,11 @@
 
             </div>
             {% endfor %}
+          {%else%}
+            <div class="container col-md-12">
+              <h3>Ooops it seems that there are no Lecture Contents at uploaded...</h3>
+            </div>
+          {% endif %}
           </section>
         </div>
 
