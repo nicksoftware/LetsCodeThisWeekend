@@ -13,5 +13,8 @@ class PostAdmin(admin.ModelAdmin):
     list_display_links = ('id', 'title')
 
     list_per_page = 25
-    
+
+
+
+
 admin.site.register(Post,PostAdmin)

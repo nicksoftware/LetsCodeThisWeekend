@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+
+{% load humanize %}
 {% load static %}
 {% block title%}Our Courses{% endblock %}
 
@@ -76,7 +78,8 @@
                   <a href="">
                     <h4 class="card-title">{{ course.title}}</h4>
                   </a>
-                  <p class="card-text">{{ course.description }}</p>
+               <p class="card-text">{{course.description|truncatewords:12}}</p> 
+                <a href="{% url 'detail' course.id %}">Read More</a>
                   <h6>Instructor : {{ course.instructor }}</h6>
                 </div>
                 <div class="row">
@@ -100,7 +103,7 @@
 
                 </div>
                 <div class="card-footer text-muted">
-                  {{course.pub_date }}
+                  {{course.pub_date|naturaltime }}
                 </div>
               </div>
             </div>

@@ -1,6 +1,7 @@
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.shortcuts import render,get_object_or_404
 from .models import Course, Step, Category
+import datetime
 # Create your views here.
 
 def course_list(request):

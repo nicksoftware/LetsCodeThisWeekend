@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load humanize %}
+
 {% load static %}
 {% block title%}Let's Code This Weekend{% endblock %}
 
@@ -10,7 +12,7 @@
       <div class="col-md-8 ml-auto mr-auto mt-5">
         <div class="brand mt-5">
           <h1>Let's Code This Weekend</h1>
-          <h3>Start your Coding Career with us and move from Zero to Hero Within a Short space of time.</h3>
+          <h3>Engage in Development activities and learn with us every weekend here.</h3>
           <form action="" class="">
             <div class="input-group">
 
@@ -43,7 +45,7 @@
                       <h5 class="pink-text p-4"><i class="fas fa-chart-pie"></i> {{ course.category }}</h5>
                       <h3 class="card-title text-white p-2"><strong> {{course.title}} </strong></h3>
   
-                      <a class="btn btn-rose"><i class="fas fa-clone left"></i> View</a>
+                      <a href="{% url 'detail' course.id %}" class="btn btn-rose"><i class="fas fa-clone left"></i> View</a>
                     </div>
                   </div>
   
@@ -63,7 +65,7 @@
         <div class="section m-0">
           <div class="row">
               <div class="col-md-12 ml-auto mr-auto">
-                <h2 class="display-2 text center">Recently updated Courses</h2>
+                <h2 class="display-2 text center">Recently updated Tutorials</h2>
               </div>
             </div>
           <div class="row">
@@ -84,13 +86,14 @@
                 </div>
                 {% if courses %}
             {% for course in courses %}
-            <div class="col-md-6">
+            <div class="col col-md-6">
                 <div class="card card-nav-tabs text-center">
                   <div class="card-body">
                     <img class="card-img-top" src="{{ course.image.url }}" height="200" alt="Card image cap">
                     <h4 class="card-title">{{ course.title }}</h4>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <p class="card-title ">Price  :R {{course.price}}.00 </p>
+               <p class="card-text">{{course.description|truncatewords:12}} </p> 
+               <a href="{% url 'detail' course.id %}">Read More</a>
+               <!-- <p class="card-title ">Price  :R {{course.price}}.00 </p> -->
                     <h4>Instructor : Nicolas Maluleke</h4>
                   </div>
                   <div class="row">
@@ -109,12 +112,13 @@
                   </div>
 
                   <div class="mt-0">
-                    <a href="#0" class="btn btn-rose btn-round"> <i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                    <!-- <a href="#0" class="btn btn-rose btn-round"> <i class="fas fa-shopping-cart"></i> Add to Cart</a>
                     <a href="#0" class="btn btn-outline-danger btn-round"> <i class="fas fa-heart"></i> Add to
-                      Wishlist</a>
+                      Wishlist</a> -->
+                      <a href="{% url 'detail' course.id %}" class="btn btn-outline-danger btn-round"> View Tutorial </a>
                   </div>
                   <div class="card-footer text-muted">
-                    {{course.pub_date}}
+                    Created on :{{course.pub_date|date:"F j,Y"}}
                   </div>
                 </div>
               </div>
@@ -123,7 +127,7 @@
             {% else  %}
             <div class="col-md-12 mt-5">
               <div class="container text-center">
-                <h3>Sorry there are no Posts Available at the moment, please try again later..</h3>
+                <h3>Sorry there are no Courses Available at the moment, please try again later..</h3>
               </div>
             </div>
             {% endif %}
@@ -155,7 +159,7 @@
                             <i class="material-icons">trending_up</i> Trending
                           </h6>
                           <h4 class="card-title">
-                            <a href="#pablo">{{ post.title }}</h4>
+                            <a href="{% url 'postDetail' post.id %}">{{ post.title }}</h4>
                         </div>
                         <div class="card-footer ">
                           <div class="author">
@@ -203,8 +207,8 @@
             </div>
             <div id="product-slider" class="product-slider owl-carousel owl-theme">
               {% for course in courses %}
-              <div class="item">
-                <div class="container" >
+              <div class="  item">
+                <div class="container col col-12" >
                   <!-- Card -->
                   <div class="card card-image"style="background-image: url({{ course.image.url }});" height="200">
   
@@ -213,7 +217,7 @@
                       <div class="course-list-title px-3">
                         <h4 class=""><i class="fas fa-chart-pie"></i> {{ course.category }}</h4>
                         <h3 class="card-title text-rose"><strong> {{course.title}} </strong></h3>
-                        <a class="btn btn-rose  mb-2"><i class="fas fa-clone left"></i> View</a>
+                        <a href="{% url 'detail' course.id %}" class="btn btn-rose  mb-2"><i class="fas fa-clone left"></i> View</a>
                       </div>
                     </div>
   

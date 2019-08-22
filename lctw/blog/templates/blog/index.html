@@ -40,6 +40,7 @@
 <section>
   <div>
       <div id="main-slider" class="product-slider owl-carousel owl-theme">
+          {% if course %}
           {% for course in courses %}
           <div class="item">
             <div class="" >
@@ -60,6 +61,7 @@
             </div>
           </div>
           {% endfor %}
+          {% endif %}
         </div>
   </div>
 </section>
@@ -74,32 +76,39 @@
                       _________________________________________________________
                       -->
                       <div id="blog-listing" class="col-lg-9">
-                        <div class="box">
-                          <h1>Development</h1>
+                        <div class="main-raised text-center mt-3 mb-2 px-5 ">
+                          <h1 class="mt-5">Development</h1>
                           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur magnam corrupti dignissimos veritatis cum beatae autem quibusdam sunt accusantium porro?.</p>
                         </div>
                         <!-- post-->
                         {% if posts %}
                             {% for post in posts %}
+                            <div class=" card p-4  m-3 ">
                             <div class="post">
                                     <h2><a href="{% url 'postDetail' post.id %}">{{ post.title}} </a></h2>
-                                    <p class="author-category">By <a href="#">{{ post.author }}</a> in <a href=""> {{post.category}} </a></p>
+                                    <p class="author-category">By <a href="#">{{ post.author }}</a> in <a href=""> {{post.category}} </a>Department</p>
                                     <hr>
                                     <p class="date-comments"><a href="post.html"><i class="fas fa-calendar-alt"></i> {{ post.pub_date }}</a>
                                         <a href="post.html"><i class="far fa-comment-dots"></i> 8 Comments</a></p>
                                     <div class="image"><a href="post.html"><img src="{{post.main_image.url}}" alt="Example blog post alt" class="img-fluid"></a></div>
-                                    <p class="intro"> {{ post.summary }} </p>
+                                    <h3><a href="{% url 'postDetail' post.id %}">{{ post.title}} </a></h3>  
+                                    <p class="intro"> {{ post.content|truncatewords:30 }} </p>
                                     <p class="read-more"><a href="{% url 'postDetail' post.id %}" class="btn btn-primary">Continue reading</a></p>
                                   </div>
+                                </div>
                             {% endfor %}
 
                         {% else %}
+                        <div class=" card p-4  m-3 ">
+                            <div class="post">
+                                    <h2>There are no Posts available</h2>
+                                </div>
                         {% endif %}
 
         
-                        <div class="pager d-flex justify-content-between">
+                        <div class="pager d-flex justify-content-between mb-3">
                           <div class="previous"><a href="#" class="btn btn-outline-primary">← Older</a></div>
-                          <div class="next disabled"><a href="#" class="btn btn-outline-secondary disabled">Newer →        </a></div>
+                          <div class="next disabled"><a href="#" class="btn btn-outline-secondary disabled">Newer → </a></div>
                         </div>
                       </div>
                       <!-- /.col-lg-9-->
@@ -119,7 +128,7 @@
                           <div class="card-body text-white">
                             <ul class="nav flex-column nav-pills">
                                 {% for cat in categories %}
-                                <li><a href="blog.html" class="nav-link"> {{cat.title}} </a></li>
+                                <li><a href="" class="nav-link"> {{cat.title}}  </a></li>
                                 {% endfor %}
                             </ul>
                             <hr>

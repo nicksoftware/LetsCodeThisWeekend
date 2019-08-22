@@ -1,26 +1,64 @@
 
 {% extends 'base.html' %}
+{% load static %}
+{% block title %}LCTW | About{% endblock %}
+{%  block content %}
+
+<div class="main bg-secondary " style="background-image: url({% static 'img/background/background2.jpg' %}); background-repeat: no-repeat;background-size: cover; background-attachment: fixed;">
+  <div class="container text-light">
+      <div class="section text-center">
+          <div class="row mt-5">
+              <div class="col-md-8 ml-auto mr-auto course-list-title">
+                  <h2 class="title text-white">About US</h2>
+                  <p class="lead text-white">Who are we and what do we have to offer</p>
+                  <hr class="text-rose">
+
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+</div>
+</div>
+<!-- Breadcrumb -->
+<section id="bc" class="mt-3   main-raised">
+  <div class="container ">
+      <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                  <a href=" {% url 'index' %} ">
+                      <i class="fas fa-home"></i> Home</a>
+              </li>
+              <li class="breadcrumb-item active"><i class="fa fa-support mb-0"></i> About
+          </ol>
+      </nav>
+  </div>
+</section>
+
 <div class="main">
         <div class="container">
                 <div class="section text-center">
                         <div class="row">
                           <div class="col-md-8 ml-auto mr-auto">
-                            <h2 class="title">Join us Now</h2>
-                            <h3>Benefits</h3>
-                            <h5 class="description">earn and Master Full stack Developing .We teach expects of programming from web
-                              Development to android and ios app Development from Scratch
-                              What will we cover?
+                            <h2 class="title">What do we do </h2>
+                            <h5 class="description">We are just a group of self taught Developers all around the south Africa learning and
+                               offering our skills back to the community.Our Aim is to build a community of skilled and unskilled learners all over the world together 
+                               and teach each other
                             </h5>
+                            
+
                           </div>
                         </div>
                         <div class="features">
+                            <h3>What you will learn with us?</h3>
                           <div class="row">
                             <div class="col-md-4">
                               <div class="info">
                                 <div class="icon icon-info">
                                   <i class="material-icons">school</i>
                                 </div>
-                                <h4 class="info-title">Complete Development Course</h4>
+                                <h4 class="info-title">Development Courses</h4>
                                 <p>earn and Master Full stack Developing .We teach expects of programming from web Development to android
                                   and ios app Development from Scratch
                                   What will we cover?
@@ -36,7 +74,7 @@
                                   <i class="material-icons">layers</i>
                                 </div>
                                 <h4 class="info-title">Kick off your Career</h4>
-                                <p>earn and Master Full stack Developing .We teach expects of programming from web Development to android
+                                <p>Learn and Master Full stack Developing .We teach expects of programming from web Development to android
                                   and ios app Development from Scratch
                                   What will we cover?
                                   Learn Development Life Cycles,
@@ -50,7 +88,7 @@
                                 <div class="icon icon-danger">
                                   <i class="material-icons">people</i>
                                 </div>
-                                <h4 class="info-title">Awesome Community</h4>
+                                <h4 class="info-title">Learn About Latest technologies</h4>
                                 <p>Learn and Master Full stack Developing .We teach expects of programming from web Development to android
                                   and ios app Development from Scratch
                                   What will we cover?
@@ -59,6 +97,45 @@
                                   training payment Methods and Strategies</p>
                               </div>
                             </div>
+                            <div class="col-md-4">
+                                <div class="info">
+                                  <div class="icon icon-danger">
+                                    <i class="material-icons">people</i>
+                                  </div>
+                                  <h4 class="info-title">Engage with an Awesome Developers Community</h4>
+                                  <p>Learn and Master Full stack Developing .We teach expects of programming from web Development to android
+                                    and ios app Development from Scratch
+                                    What will we cover?
+                                    Learn Development Life Cycles,
+                                    Processes of developing:Research & Planning,sitemap,User Experience Design & Wire framing, Client
+                                    training payment Methods and Strategies</p>
+                                </div>
+                              </div>
+                              <div class="col-md-4">
+                                  <div class="info">
+                                    <div class="icon icon-danger">
+                                      <i class="material-icons">people</i>
+                                    </div>
+                                    <h4 class="info-title">Work on real world Projects with us</h4>
+                                    <p>Learn and Master Full stack Developing .We teach expects of programming from web Development to android
+                                      and ios app Development from Scratch
+                                      What will we cover?
+                                      Learn Development Life Cycles,
+                                      Processes of developing:Research & Planning,sitemap,User Experience Design & Wire framing, Client
+                                      training payment Methods and Strategies</p>
+                                  </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="info">
+                                      <div class="icon icon-danger">
+                                        <i class="material-icons">people</i>
+                                      </div>
+                                      <h4 class="info-title">Get more skills </h4>
+                                      <p>you dont have to be an expect in development to join us, we welcome anyone who is at any
+                                        level                         
+                                      </p>
+                                    </div>
+                                  </div>
                           </div>
                         </div>
                       </div>
@@ -75,18 +152,34 @@
                                   </div>
                                   <h4 class="card-title">Nicolas MAluleke
                                     <br>
-                                    <small class="card-description text-muted">Instructor</small>
+                                    <small class="card-description text-muted">Founder</small>
+                                    <br>
+                                    <small class="card-description text-muted">Software Developer</small>
                                   </h4>
                                   <div class="card-body">
-                                    <p class="card-description">Programmer with 4over 5 years of Coding exprience.Has exprience in the
+                                    <p class="card-description">Programmer with over 2 years of Coding exprience.Has exprience in the
                                       following languages.
                                     </p>
+                                    <div class=" text-center ">
+                                      <ul class="card-description">
+                                          <li>Python</li>
+                                          <li>Visual Basic</li>
+                                          <li>PHP</li>
+                                          <li>HTML</li>
+                                          <li>CSS</li>
+                                          <li>Javascript</li>
+                                         
+                                      </ul>
+                                    </div>
                                     <button class="btn btn-link"><a class="btn btn-info" href="profilePage.php">Learn More</a></button>
                                   </div>
                                   <div class="card-footer justify-content-center">
-                                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-twitter"></i></a>
-                                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-instagram"></i></a>
-                                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-facebook-square"></i></a>
+                                      <a href="https://twitter.com/HNicolus" target="_blank" class="btn btn-link btn-just-icon text-info"><i class="fab fa-twitter"></i></a>
+                                      <a href="#pablo" target="_blank" class="btn btn-link btn-just-icon text-primary"><i class="fab fa-instagram"></i></a>
+                                      <a href="https://www.facebook.com/"target="_blank" class="btn btn-link btn-just-icon  facebook"><i class="fab fa-facebook-square"></i></a>
+                                      <a href="https://www.linkedin.com/in/nicolas-maluleke-81a698191/" target="_blank" class="btn btn-link btn-just-icon  linkedin"><i class="fab fa-linkedin"></i></a>
+                                      <a href="https://www.patreon.com/nicolasmaluleke" target="_blank" class="btn btn-link btn-just-icon text-warning"><i class="fab fa-patreon"></i></a>
+                                     
                                   </div>
                                 </div>
                               </div>
@@ -100,18 +193,34 @@
                                   </div>
                                   <h4 class="card-title">Tshepo Motlathole
                                     <br>
-                                    <small class="card-description text-muted">Instructor</small>
+                                    <small class="card-description text-muted">Co-Founder</small>
+                                    <br>
+                                    <small class="card-description text-muted">Software Engineerer</small>
                                   </h4>
                                   <div class="card-body">
-                                    <p class="card-description">Programmer with 4over 5 years of Coding exprience.Has exprience in the
+                                    <p class="card-description">Programmer with over 5 years of Coding expriencea and has exprience in the
                                       following languages
                                     </p>
+                                    <div class=" text-center ">
+                                        <ul class="card-description">
+                                            <li>Python</li>
+                                            <li>C++</li>
+                                            <li>HTML</li>
+                                            <li>CSS</li>
+                                            <li>Javascript</li>
+                                            <li>PHP</li>
+                                        </ul>
+                                      </div>
                                     <button class="btn btn-link"><a class="btn btn-info" href="profilePage.php">Learn More</a></button>
                                   </div>
                                   <div class="card-footer justify-content-center">
-                                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-twitter"></i></a>
-                                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-linkedin"></i></a>
-                                  </div>
+                                      <a href="#pablo" class="btn btn-link btn-just-icon text-info"><i class="fab fa-twitter"></i></a>
+                                      <a href="#pablo" class="btn btn-link btn-just-icon text-primary"><i class="fab fa-instagram"></i></a>
+                                      <a href="#pablo" class="btn btn-link btn-just-icon  facebook"><i class="fab fa-facebook-square"></i></a>
+                                      <a href="#pablo" class="btn btn-link btn-just-icon  linkedin"><i class="fab fa-linkedin"></i></a>
+                                      <a href="#pablo" class="btn btn-link btn-just-icon text-warning"><i class="fab fa-patreon"></i></a>
+                                    
+                                    </div>
                                 </div>
                               </div>
                             </div>
@@ -128,15 +237,19 @@
                                   </h4>
                                   <div class="card-body">
                                     <p class="card-description">You can write here details about one of your team members. You can give
+                                      more details about what they do. Feel free to add some.You can write here details about one of your team members. You can give
                                       more details about what they do. Feel free to add some
-                                      <a href="#">links</a> for people to be able to follow them outside the site.</p>
+                                      <a href="#">links</a> for people to be able to follow them outside the site.You can write here details about one of your team members. You can give
+                                      more details about what they do. Feel free to add some.You can write here details about one of your team members. You can give
+                                      </p>
+
                                     <button class="btn btn-link"><a class="btn btn-info" href="profilePage.php">Learn More</a></button>
                                   </div>
                                   <div class="card-footer justify-content-center">
-                                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-twitter"></i></a>
-                                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-instagram"></i></a>
-                                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-facebook-square"></i></a>
-                                  </div>
+                                      <a href="#pablo" class="btn btn-link btn-just-icon text-info"><i class="fab fa-twitter"></i></a>
+                                      <a href="#pablo" class="btn btn-link btn-just-icon text-primary"><i class="fab fa-instagram"></i></a>
+                                      <a href="#pablo" class="btn btn-link btn-just-icon text-info"><i class="fab fa-facebook-square"></i></a>
+                                    </div>
                                 </div>
                               </div>
                             </div>
@@ -147,3 +260,4 @@
                   
         </div>
 </div>
+{% endblock %}

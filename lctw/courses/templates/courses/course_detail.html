@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load humanize course_extras %}
 {% load static %}
 {% block title%}
 {{ course.title }}
@@ -27,25 +28,12 @@
         <div class="col-md-12 ml-auto mr-auto">
           <article>
             <h2 class="title">{{ course.title }}</h2>
-          <div id="" class="box">
+          <div id="" class="box text-dark container col-md-6">
               <h4 class="title">Course Description</h4>
-              <p class=" text-dark">{{ course.description }}</p>
-              <h4 class="title" >Requirements</h4>
-              <div class="container col-md-4"><ul>
-                  <li>No Coding exprience</li>
-                  <li>Hunger to Learn</li>
-                </ul></div>
-              <h4 class="title" >What you will Learn | Gain </h4>
-              <div class="container col-md-4">
-                  <ul class=" ">
-                      <li>Software Design</li>
-                      <li>Javascript Programming Language</li>
-                      <li>To Create Real world applications</li>
-                    </ul>
-              </div>
+                {{ course.description|markdown_to_html}}
+              <p>There are {{coures.step_set.all|length }} Lectures  in this Courses </p>
               <blockquote>
-                <p><em>when you don't create things, you become defined by your tastes rather than ability"</em></p>
-              </blockquote>
+               </blockquote>
               <hr>
               <div class="social">
                 <h4>Share with your friends</h4>

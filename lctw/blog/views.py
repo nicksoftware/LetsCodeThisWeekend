@@ -18,6 +18,7 @@ def blog(request):
     return render(request, 'blog/index.html',context)
 
 def  blog_detail(request, post_id):
+    
     post = get_object_or_404(Post,pk=post_id)
     context = {
         'post':post
