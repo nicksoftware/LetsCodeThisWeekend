@@ -44,21 +44,26 @@ def register(request):
 
 def login(request):
     if request.method == 'POST':
-        #login user
-        username = request.POST['username']
-        password = request.POST['password']
+        if request.session.test_cookie_worked():
 
-        user = auth.authenticate(username=username, password=password)
-        #validation
-        if user is not None:
-            auth.login(request,user)
-            messages.success(request,'You are now logged in')
-            return redirect('dashboard')
+            # The test cookie worked, so delete it.
+            request.session.delete_test_cookie()
+            #login user
+            username = request.POST['username']
+            password = request.POST['password']
+
+            user = auth.authenticate(username=username, password=password)
+            #validation
+            if user is not None:
+                auth.login(request,user)
+                messages.success(request,'You are now logged in')
+                return redirect('dashboard')
+            else:
+                messages.error(request,'Invalid credentials')
+                return redirect('login')
         else:
-            messages.error(request,'Invalid credentials')
-            return redirect('login')
-    else:
-        return render(request, 'login.html')
+            request.session.set_test_cookie()
+            return render(request, 'login.html')
 
 def dashboard(request):
     courses = Course.objects.order_by('-pub_date').filter(is_published=True)
@@ -75,7 +80,12 @@ def logout(request):
     if request.method == 'POST':
         #logout
         auth.logout(request)
+        try:
+            del request.session['member_id']
+        except KeyError:
+            pass
         messages.success(request, 'You have successfully logged out')
-        return redirect('index')
+    return redirect('index')
 def settings(request):
     return render(request, 'accounts/settings.html')
+

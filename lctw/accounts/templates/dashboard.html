@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load avatar_tags %}
+
 {% block title%}Let's Code This Weekend{% endblock %}
 
 {% block content %}
@@ -8,7 +10,7 @@
     <div class="container ">
         <div class="pt-5">
             <div class="photo-container pt-5 ">
-                <img src="{% static 'img/faces/1.png' %}" class="" width="100" height="100" alt="">
+                    {% avatar user 150 class="img-fluid rounded-circle" id="user_avatar" %}
             </div>
         </div>
         <h3 class="display-3">{{ user.username }}</h3>

@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% load humanize %}
-
+{% load crispy_forms_tags %}
+{% load static  %}
+{% load avatar_tags %}
 {% load static %}
 {% block title%}Let's Code This Weekend{% endblock %}
 
@@ -93,7 +95,7 @@
                     <h4 class="card-title">{{ course.title }}</h4>
                <p class="card-text">{{course.description|truncatewords:12}} </p> 
                <a href="{% url 'detail' course.id %}">Read More</a>
-               <!-- <p class="card-title ">Price  :R {{course.price}}.00 </p> -->
+               <p class="card-title ">Price  :R {{course.price}}.00 </p>
                     <h4>Instructor : Nicolas Maluleke</h4>
                   </div>
                   <div class="row">
@@ -112,10 +114,10 @@
                   </div>
 
                   <div class="mt-0">
-                    <!-- <a href="#0" class="btn btn-rose btn-round"> <i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                    <a href="#0" class="btn btn-rose btn-round"> <i class="fas fa-shopping-cart"></i> Add to Cart</a>
                     <a href="#0" class="btn btn-outline-danger btn-round"> <i class="fas fa-heart"></i> Add to
-                      Wishlist</a> -->
-                      <a href="{% url 'detail' course.id %}" class="btn btn-outline-danger btn-round"> View Tutorial </a>
+                      Wishlist</a>
+                      <!-- <a href="{% url 'detail' course.id %}" class="btn btn-outline-danger btn-round"> View Tutorial </a> -->
                   </div>
                   <div class="card-footer text-muted">
                     Created on :{{course.pub_date|date:"F j,Y"}}
@@ -156,7 +158,7 @@
                     <div class="card">
                         <div class="card-body ">
                           <h6 class="card-category text-danger">
-                            <i class="material-icons">trending_up</i> Trending
+                            <i class="material-icons">trending_up</i> {{post.category}}
                           </h6>
                           <h4 class="card-title">
                             <a href="{% url 'postDetail' post.id %}">{{ post.title }}</h4>
@@ -164,15 +166,13 @@
                         <div class="card-footer ">
                           <div class="author">
                             <a href="#pablo">
-                              <img
-                                src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=334&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D"
-                                alt="..." class="avatar img-raised">
+                                <!-- {% avatar user 50 class="img-fluid rounded-circle" id="user_avatar" %} -->
                               <span>{{ post.author.first_name }} {{ post.author.last_name }}</span>
                             </a>
                           </div>
                           <div class="stats ml-auto">
-                            <i class="material-icons">favorite</i> 342 &#xB7;
-                            <i class="material-icons">chat_bubble</i> 45
+                            <!-- <i class="material-icons">favorite</i> 342 &#xB7; -->
+                            <i class="material-icons">chat_bubble</i> {{ post.comments.count }}
                           </div>
                         </div>
                       </div>

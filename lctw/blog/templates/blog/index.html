@@ -76,9 +76,9 @@
                       _________________________________________________________
                       -->
                       <div id="blog-listing" class="col-lg-9">
-                        <div class="main-raised text-center mt-3 mb-2 px-5 ">
-                          <h1 class="mt-5">Development</h1>
-                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur magnam corrupti dignissimos veritatis cum beatae autem quibusdam sunt accusantium porro?.</p>
+                        <div class=" text-center mt-3 mb-2 px-5 ">
+                          <h1 class="mt-5">Daily News </h1>
+                          <p>Check out whats happening in our world</p>
                         </div>
                         <!-- post-->
                         {% if posts %}
@@ -88,8 +88,8 @@
                                     <h2><a href="{% url 'postDetail' post.id %}">{{ post.title}} </a></h2>
                                     <p class="author-category">By <a href="#">{{ post.author }}</a> in <a href=""> {{post.category}} </a>Department</p>
                                     <hr>
-                                    <p class="date-comments"><a href="post.html"><i class="fas fa-calendar-alt"></i> {{ post.pub_date }}</a>
-                                        <a href="post.html"><i class="far fa-comment-dots"></i> 8 Comments</a></p>
+                                    <p class="date-comments"><a href="{% url 'postDetail' post.id %}"><i class="fas fa-calendar-alt"></i> {{ post.pub_date }}</a>
+                                        <a href="{% url 'postDetail' post.id %}"><i class="far fa-comment-dots"></i> {{ post.comments.count }} Comments</a></p>
                                     <div class="image"><a href="post.html"><img src="{{post.main_image.url}}" alt="Example blog post alt" class="img-fluid"></a></div>
                                     <h3><a href="{% url 'postDetail' post.id %}">{{ post.title}} </a></h3>  
                                     <p class="intro"> {{ post.content|truncatewords:30 }} </p>

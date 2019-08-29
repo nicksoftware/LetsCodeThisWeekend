@@ -1,4 +1,5 @@
 from django.db import models
+from embed_video.fields import EmbedVideoField
 # Create your models here.
 class Instructor(models.Model):
     name =models.ForeignKey('auth.User',on_delete=models.CASCADE)
@@ -36,6 +37,8 @@ class Course(models.Model):
 class Step(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
+    video = EmbedVideoField(default="")
+    
     order = models.IntegerField(default=0)
     Course = models.ForeignKey(Course,on_delete=models.CASCADE)
 

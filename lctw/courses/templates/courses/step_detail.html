@@ -8,5 +8,19 @@
         <h2>{{ step.course.title }}</h2>
         <h3> {{ step.title }}</h3>
         <!-- {{ step.content|linebreaks }} -->
+        {% load embed_video_tags %}
+
+<!-- The video tag: -->
+{% video step.course.video as my_video %}
+  URL: {{ my_video.url }}
+  Thumbnail: {{ my_video.thumbnail }}
+  Backend: {{ my_video.backend }}
+
+  {% video my_video "large" %}
+{% endvideo %}
+
+<!-- Or embed shortcut: -->
+{% video my_video '800x600' %}
+
     </article>
 {% endblock %}

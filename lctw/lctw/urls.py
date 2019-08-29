@@ -25,7 +25,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('pages.urls')),
     path('cart/',include('cart.urls')),
-    path('blog/', include('blog.urls'))
+    path('blog/', include('blog.urls')),
+    path('avatar/', include('avatar.urls')),
+    # path('api/post/',include('blog.api.urls')),
 
     
 ]

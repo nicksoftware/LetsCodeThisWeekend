@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load avatar_tags %}
 {% block title %}{% endblock %}
 
 {% block content %}
@@ -62,54 +63,74 @@
                 <!-- *** CUSTOMER MENU END ***-->
             </div>
             <div class="col-lg-8 mt-3 main-raised ">
-                <div class="box">
-                    <h1>My account</h1>
-                    <p class="lead">Change your personal details or your password here.</p>
-                    <p class="text-muted">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
+                <div class="box text-ce">
+                        <div class=" pt-2 ">
+                                <div class="photo-container text-center ">
+                                        {% avatar user 150 class="img-fluid rounded-circle" id="user_avatar" %}
+                                </div>
+                            </div>
+                    <h1 class ="text-center" >My account</h1>
+                    
+                    <p class="lead text-center">Change your personal details or your password here.</p>
+
+                    <p class="text-muted" text-center>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
                         turpis egestas.</p>
-                    <h3>Change password</h3>
-                    <form>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="password_old">Old password</label>
-                                    <input id="password_old" type="password" class="form-control">
+                    <div  class="col-md-12 text-center">
+                            <h3>Change password</h3>
+                            <form>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="password_old">Old password</label>
+                                            <input id="password_old" type="password" class="form-control">
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="password_1">New password</label>
-                                    <input id="password_1" type="password" class="form-control">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="password_1">New password</label>
+                                            <input id="password_1" type="password" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="password_2">Retype new password</label>
+                                            <input id="password_2" type="password" class="form-control">
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="password_2">Retype new password</label>
-                                    <input id="password_2" type="password" class="form-control">
+                                <!-- /.row-->
+                                <div class="col-md-12 text-center">
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save new
+                                        password</button>
                                 </div>
-                            </div>
-                        </div>
-                        <!-- /.row-->
-                        <div class="col-md-12 text-center">
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save new
-                                password</button>
-                        </div>
-                    </form>
+                            </form>
+                    </div>
                     <h3 class="mt-5">Personal details</h3>
                     <form>
+                        <div class="row">
+                            <div class="col-md-4">
+                                    <a href="{% url 'avatar_change' %}">Add an avatar</a>
+                            </div>
+                            <div class="col-md-4">
+                                    <a href="{% url 'avatar_change' %}"> Change your avatar</a>
+                            </div>
+                            <div class="col-md-4">
+                                    <a href="{% url 'avatar_change' %}">delete your avatar</a>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="firstname">Firstname</label>
-                                    <input id="firstname" type="text" class="form-control">
+                                    <input id="firstname" type="text" class="form-control" value="{{ user.first_name}}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="lastname">Lastname</label>
-                                    <input id="lastname" type="text" class="form-control">
+                                    <input id="lastname" type="text" class="form-control"value="{{ user.last_name}}">
                                 </div>
                             </div>
                         </div>
@@ -163,7 +184,8 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input id="email" type="text" class="form-control">
+                                    <input id="email" type="text" class="form-control" placeholder="" value="{{ user.email}}">
+
                                 </div>
                             </div>
                             <div class="col-md-12 text-center">
