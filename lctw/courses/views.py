@@ -4,6 +4,20 @@ from .models import Course, Step, Category
 import datetime
 # Create your views here.
 
+def category_list(request, category):
+    courses = Course.objects.order_by('-pub_date').filter(category = category_id )
+    paginator = Paginator(courses, 9)
+    page = request.GET.get('page')
+    paged_courses = paginator.get_page(page)
+    category = Category.objects.all()
+    context = {
+       'courses':courses,
+       'courses':paged_courses,
+       'category':category
+    }
+    return render(request,'courses/course_list.html',context)
+
+
 def course_list(request):
     courses = Course.objects.order_by('-pub_date').filter(is_published=True)
     paginator = Paginator(courses, 9)
