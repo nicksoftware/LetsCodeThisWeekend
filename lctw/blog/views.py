@@ -30,15 +30,15 @@ def  blog_detail(request, post_id):
     if request.method == "POST":
         form = CommentForm(request.POST)
 
-        if request.session.get('has_commented', False):
-            messages.error(request,  'You have already commented.')
-            return render(request,'blog/blog_detail.html',context)
-        if form.is_valid():
-            comment = form.save(commit=False)
-            comment.post = post
-            comment.save()
-            request.session['has_commented'] = True
-            return render(request,'blog/blog_detail.html',context)
+        # if request.session.get('has_commented', False):
+        #     messages.error(request,  'You have already commented.')
+        #     return render(request,'blog/blog_detail.html',context)
+        # if form.is_valid():
+        comment = form.save(commit=False)
+        comment.post = post
+        comment.save()
+        request.session['has_commented'] = True
+        return render(request,'blog/blog_detail.html',context)
         
   
 

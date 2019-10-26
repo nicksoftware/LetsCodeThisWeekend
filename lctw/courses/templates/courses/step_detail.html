@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
+{% load humanize %}
 {% load static %}
+{% load embed_video_tags %}
 {% block title %} {{step.title}} - {{step.course.title }} {% endblock %}
 {% block content %}
 
@@ -8,7 +10,7 @@
         <h2>{{ step.course.title }}</h2>
         <h3> {{ step.title }}</h3>
         <!-- {{ step.content|linebreaks }} -->
-        {% load embed_video_tags %}
+     
 
 <!-- The video tag: -->
 {% video step.course.video as my_video %}
@@ -20,7 +22,7 @@
 {% endvideo %}
 
 <!-- Or embed shortcut: -->
-{% video my_video '800x600' %}
+<!-- {% video my_video '800x600' %} -->
 
     </article>
 {% endblock %}

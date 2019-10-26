@@ -34,6 +34,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'rest_framework',
     'avatar',
+    'embed_video',
+    'ckeditor',
     'pages.apps.PagesConfig',
     'blog.apps.BlogConfig',
     'cart.apps.CartConfig',
