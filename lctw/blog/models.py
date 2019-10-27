@@ -11,7 +11,7 @@ class Post(models.Model):
     updated = models.DateTimeField(auto_now=True)
     timestomp = models.DateTimeField(auto_now_add=True)
     main_image = models.ImageField(upload_to='images/blog/%Y/%m/%d')
-    content = models.TextField()
+    content = RichTextField()
     is_published = models.BooleanField(default=True)
     
     def __str__(self):
