@@ -96,8 +96,8 @@
                     <h4 class="card-title">{{ course.title }}</h4>
                <p class="card-text">{{course.description|truncatewords:12}} </p> 
                <a href="{% url 'detail' course.id %}">Read More</a>
-               <p class="card-title ">Price  :R {{course.price}}.00 </p>
-                    <h4>Instructor : Nicolas Maluleke</h4>
+               <p class="card-title ">Price  :R {{course.price}} </p>
+                    <h4>Instructor : {{ cousrse.instructor }}</h4>
                   </div>
                   <div class="row">
                     <div class="col-md-4 col-sm-10 ml-auto">
