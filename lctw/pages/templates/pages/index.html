@@ -94,7 +94,7 @@
                   <div class="card-body">
                     <img class="card-img-top" src="{{ course.image.url }}" height="200" alt="Card image cap">
                     <h4 class="card-title">{{ course.title }}</h4>
-               <p class="card-text">{{course.description|truncatewords:12}} </p> 
+               <p class="card-text">{{course.description|markdown_to_html|truncatewords:12}} </p> 
                <a href="{% url 'detail' course.id %}">Read More</a>
                <p class="card-title ">Price  :R {{course.price}} </p>
                     <h4>Instructor : {{ cousrse.instructor }}</h4>
