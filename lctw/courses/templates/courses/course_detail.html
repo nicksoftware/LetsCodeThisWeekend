@@ -14,7 +14,7 @@
       <div class="col-md-8 ml-auto mr-auto mt-5">
         <div class="brand mt-5">
           <h1>{{ course.title }}</h1>
-          <h3>{{ course.description }}</h3>
+          <h3>{{ course.description|markdown_to_html }}</h3>
         </div>
       </div>
     </div>

@@ -12,7 +12,7 @@
             <div class="row mt-5">
                 <div class="col-md-8 ml-auto mr-auto course-list-title">
                     <h2 class="title text-white">{{ post.title }}</h2>
-                    <p class="lead text-white">{{ post.summary }}</p>
+                    <p class="lead text-white">{{ post.summary|markdown_to_html }}</p>
                     <hr class="text-rose">
 
                 </div>
@@ -53,7 +53,7 @@
                           <p class="author-date">By <a href="#">{{ post.author }}</a> | {{ post.pub_date}} </p>
                           <p class="lead">{{post.summary|markdown_to_html}}</p>
                           <div id="post-content">
-                            <p>{{ post.content }}</p>
+                            <p>{{ post.content|markdown_to_html }}</p>
                             <p><img src="{{ post.main_image.url }}" alt="Example blog post alt" class="img-fluid"></p>
                             
                             {% for story in post.story_set.all %}
