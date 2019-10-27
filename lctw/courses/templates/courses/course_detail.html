@@ -62,7 +62,7 @@
               <a href="">
                 <h3 class="">{{ step.title }}</h3>
               </a>
-              <p class="">{{ step.description }}</p>
+              <p class="">{{ step.description|markdown_to_html }}</p>
               <a href="{% url 'step' course_pk=course.pk step_pk=step.pk %}" class="btn btn-outline-primary">Get Started</a>
 
             </div>

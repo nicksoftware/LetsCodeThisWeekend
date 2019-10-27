@@ -50,14 +50,14 @@
                         <div class="box ">
                           <h1 class="mt-5" style="font-weight: bold">{{ post.title}}</h1>
                           <p class="author-date">By <a href="#">{{ post.author }}</a> | {{ post.pub_date}} </p>
-                          <p class="lead">{{post.summary}}</p>
+                          <p class="lead">{{post.summary|markdown_to_html}}</p>
                           <div id="post-content">
                             <p>{{ post.content }}</p>
                             <p><img src="{{ post.main_image.url }}" alt="Example blog post alt" class="img-fluid"></p>
                             
                             {% for story in post.story_set.all %}
                             <h2>{{ story.title }}</h2>
-                            <p> {{story.content}} </p>
+                            <p> {{story.content|markdown_to_html}} </p>
                             <p><img src="{{ story.image.url }}" alt="Example blog post alt" class="img-fluid"></p>
                            {% endfor %}
                             </div>

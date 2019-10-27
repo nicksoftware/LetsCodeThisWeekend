@@ -92,7 +92,7 @@
                                         <a href="{% url 'postDetail' post.id %}"><i class="far fa-comment-dots"></i> {{ post.comments.count }} Comments</a></p>
                                     <div class="image"><a href="post.html"><img src="{{post.main_image.url}}" alt="Example blog post alt" class="img-fluid"></a></div>
                                     <h3><a href="{% url 'postDetail' post.id %}">{{ post.title}} </a></h3>  
-                                    <p class="intro"> {{ post.content|truncatewords:30 }} </p>
+                                    <p class="intro"> {{ post.content|markdown_to_html|truncatewords:30 }} </p>
                                     <p class="read-more"><a href="{% url 'postDetail' post.id %}" class="btn btn-primary">Continue reading</a></p>
                                   </div>
                                 </div>
