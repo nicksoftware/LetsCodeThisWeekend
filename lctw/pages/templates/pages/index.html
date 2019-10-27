@@ -88,45 +88,48 @@
                   </div>
                 </div>
                 {% if courses %}
-            {% for course in courses %}
-            <div class="col col-md-6">
-                <div class="card card-nav-tabs text-center">
-                  <div class="card-body">
-                    <img class="card-img-top" src="{{ course.image.url }}" height="200" alt="Card image cap">
-                    <h4 class="card-title">{{ course.title }}</h4>
-               <p class="card-text">{{course.description|markdown_to_html|truncatewords:12}} </p> 
-               <a href="{% url 'detail' course.id %}">Read More</a>
-               <p class="card-title ">Price  :R {{course.price}} </p>
-                    <h4>Instructor : {{ cousrse.instructor }}</h4>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-4 col-sm-10 ml-auto">
-                      <h4>Rating :</h4>
-                    </div>
-                    <div class="col-md-6 col-12 ml-5 my-4">
-                      <div class="rating">
-                        <input type="radio" name="{{ course.id }}" id="star1"><label for="star1"></label>
-                        <input type="radio" name="{{ course.id }}" id="star2"><label for="star2"></label>
-                        <input type="radio" name="{{ course.id }}" id="star3" checked><label for="star3"></label>
-                        <input type="radio" name="{{ course.id }}" id="star4"><label for="star4"></label>
-                        <input type="radio" name="{{ course.id }}" id="star5"><label for="star5"></label>
+                <div class="row">
+
+                  {% for course in courses %}
+                  <div class="col-md-6 col-sm-12 " height="800">
+                      <div class="card card-nav-tabs text-center">
+                        <div class="card-body">
+                          <img class="card-img-top" src="{{ course.image.url }}" height="200" alt="Card image cap">
+                          <h4 class="card-title">{{ course.title }}</h4>
+                     <p class="card-text">{{course.description|markdown_to_html|truncatewords:12}} </p> 
+                     <a href="{% url 'detail' course.id %}">Read More</a>
+                     <p class="card-title ">Price  :R {{course.price}} </p>
+                          <h4>Instructor : {{ cousrse.instructor }}</h4>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-4 col-sm-10 ml-auto">
+                            <h4>Rating :</h4>
+                          </div>
+                          <div class="col-md-6 col-12 ml-5 my-4">
+                            <div class="rating">
+                              <input type="radio" name="{{ course.id }}" id="star1"><label for="star1"></label>
+                              <input type="radio" name="{{ course.id }}" id="star2"><label for="star2"></label>
+                              <input type="radio" name="{{ course.id }}" id="star3" checked><label for="star3"></label>
+                              <input type="radio" name="{{ course.id }}" id="star4"><label for="star4"></label>
+                              <input type="radio" name="{{ course.id }}" id="star5"><label for="star5"></label>
+                            </div>
+                          </div>
+                        </div>
+      
+                        <div class="mt-0">
+                          <a href="#0" class="btn btn-rose btn-round"> <i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                          <a href="#0" class="btn btn-outline-danger btn-round"> <i class="fas fa-heart"></i> Add to
+                            Wishlist</a>
+                            <!-- <a href="{% url 'detail' course.id %}" class="btn btn-outline-danger btn-round"> View Tutorial </a> -->
+                        </div>
+                        <div class="card-footer text-muted">
+                          Created on :{{course.pub_date|date:"F j,Y"}}
+                        </div>
                       </div>
                     </div>
-                  </div>
-
-                  <div class="mt-0">
-                    <a href="#0" class="btn btn-rose btn-round"> <i class="fas fa-shopping-cart"></i> Add to Cart</a>
-                    <a href="#0" class="btn btn-outline-danger btn-round"> <i class="fas fa-heart"></i> Add to
-                      Wishlist</a>
-                      <!-- <a href="{% url 'detail' course.id %}" class="btn btn-outline-danger btn-round"> View Tutorial </a> -->
-                  </div>
-                  <div class="card-footer text-muted">
-                    Created on :{{course.pub_date|date:"F j,Y"}}
-                  </div>
+      
+                  {% endfor %}
                 </div>
-              </div>
-
-            {% endfor %}
             {% else  %}
             <div class="col-md-12 mt-5">
               <div class="container text-center">
