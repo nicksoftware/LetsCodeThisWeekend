@@ -112,7 +112,7 @@ When you type in ```python```  inside your cli then Python3.7 should be launched
 ```
 ### Install Packages
 1. Navigate to your github project clone using ```cd```.
-2. Inside your project navigate to your app, recruit_portal.
+2. Inside your project navigate to your app, lctw.
 3. install all the packages like so:
 ```
 pip3 install -r requirements.txt
