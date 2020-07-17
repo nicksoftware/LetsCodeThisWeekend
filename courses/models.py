@@ -1,15 +1,13 @@
 from django.db import models
 from embed_video.fields import EmbedVideoField
-from ckeditor.fields import RichTextField
+
 # Create your models here.
+class Skill(models.Model):
+    name = models.CharField(max_length=100)
+
 class Instructor(models.Model):
     name =models.ForeignKey('auth.User',on_delete=models.CASCADE)
-    SKILLS = [
-    ('FE', 'Front-end'),
-    ('BE', 'Back-end'),
-    ('FS', 'Full-Stack'),
-    ('IT', 'IT-Specialist'),]
-    skills = models.CharField(max_length=2, choices=SKILLS,blank=True)
+    skills = models.ForeignKey(Skill, on_delete=models.CASCADE)
     bio = models.TextField()
     
     def __str__(self):
@@ -28,7 +26,7 @@ class Course(models.Model):
     title = models.CharField(max_length=255)
     image = models.ImageField(upload_to='images/%Y/%m/%d')
     price = models.IntegerField(default=0)
-    description = RichTextField()
+    description = models.TextField()
     pub_date =  models.DateTimeField(auto_now_add=True)
     is_published = models.BooleanField(default=True)
     def __str__(self):
@@ -36,7 +34,7 @@ class Course(models.Model):
 
 class Step(models.Model):
     title = models.CharField(max_length=255)
-    description = RichTextField()
+    description = models.TextField()
     video = EmbedVideoField(default="")
     
     order = models.IntegerField(default=0)

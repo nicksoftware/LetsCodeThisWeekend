@@ -31,16 +31,6 @@ ALLOWED_HOSTS = ['192.168.8.172','localhost','127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
-    'crispy_forms',
-    'rest_framework',
-    'avatar',
-    'embed_video',
-    'ckeditor',
-    'pages.apps.PagesConfig',
-    'blog.apps.BlogConfig',
-    'cart.apps.CartConfig',
-    'accounts.apps.AccountsConfig',
-    'courses.apps.CoursesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,9 +38,24 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+
+    # Third-party apps
+    'crispy_forms',
+    'rest_framework',
+    'avatar',
+    'embed_video',
+    'django_summernote',
+    
+    # Own apps
+    'pages.apps.PagesConfig',
+    'blog',
+    'cart.apps.CartConfig',
+    'accounts.apps.AccountsConfig',
+    'courses.apps.CoursesConfig',
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -130,12 +135,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'lctw/static'),
-)
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_URL = '/static/'
+
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/' 
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+SUMMERNOTE_THEME = 'bs4'
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
