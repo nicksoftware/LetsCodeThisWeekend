@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title%}Let's Code This Weekend | Register{% endblock %}
+{% block title%}Register{% endblock %}
 
 {% block content %}
 <div class="page-header clear-filter" filter-color="orange">
@@ -12,11 +12,16 @@
         <div class="brand mt-5">
           <div class="container course-list-title ">
             <div class="col-md-10 ml-auto mr-auto cardx pt-1 mb-2 ">
-                <div class="col col-md-10 text-center"><h2 class="text-center text-rose text" style="font-weight: bold;position :relative">Register Below</h2>
+              <div class="d-flex justify-content-center text-center">
+                <h2 class="text-center text-rose text" style="font-weight: bold;position :relative">Register Below</h2>
               </div>
+
               <hr class="hr text-light bg-light">
+
               <div class="card card-login card-plain ">
-                {% include 'partials/_alerts.html' %}
+                
+                {% include '_partials/alerts.html' %}
+
                 <form method="POST" class="text-light">
                   {% csrf_token  %}
                   <div class="form-row text-light ">
@@ -52,7 +57,7 @@
                   <div class="form-group">
 
                   </div>
-                  <button  type="submit" value="Register"  class="btn btn-primary">Register</button>
+                  <button  type="submit" value="Register"  class="btn btn-primary mb-3">Register</button>
                 </form>
               </div>
             </div>
