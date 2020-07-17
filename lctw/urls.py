@@ -23,13 +23,12 @@ from pages import urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('pages.urls')),
+    path('summernote/', include('django_summernote.urls')),
+    
     path('cart/',include('cart.urls')),
     path('blog/', include('blog.urls')),
     path('avatar/', include('avatar.urls')),
     # path('api/post/',include('blog.api.urls')),
 
-    
-]
-
-urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+    path('',include('pages.urls')),
+] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

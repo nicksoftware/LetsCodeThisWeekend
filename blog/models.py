@@ -1,7 +1,6 @@
 from django.db import models
 from datetime import datetime
 from courses.models import Category
-from ckeditor.fields import RichTextField
 
 class Post(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE,default="")
@@ -11,7 +10,7 @@ class Post(models.Model):
     updated = models.DateTimeField(auto_now=True)
     timestomp = models.DateTimeField(auto_now_add=True)
     main_image = models.ImageField(upload_to='images/blog/%Y/%m/%d')
-    content = RichTextField()
+    content = models.TextField()
     is_published = models.BooleanField(default=True)
     
     def __str__(self):
@@ -25,7 +24,7 @@ class Story(models.Model):
     image =models.ImageField(upload_to='images/blog/%Y/%m/%d',blank=True)
     content = models.TextField()
     order = models.IntegerField(default=0)
-    Course = models.ForeignKey(Post,on_delete=models.CASCADE)
+    course = models.ForeignKey(Post,on_delete=models.CASCADE)
 
     class Meta:
         ordering = ['order',]
@@ -37,7 +36,7 @@ class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
     
     author = models.CharField('Name',max_length=255)
-    text = models.CharField(max_length=255)
+    message = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
     approved_comment = models.BooleanField(default=True)
 
