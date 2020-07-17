@@ -87,13 +87,8 @@ WSGI_APPLICATION = 'lctw.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'lctwdb',
-        'USER':'postgres',
-        'PASSWORD':'k c i n',
-        'HOST':'localhost',
-        'PORT':'5432',
-
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
