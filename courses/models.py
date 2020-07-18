@@ -59,6 +59,7 @@ class Tutorial(models.Model):
     title = models.CharField(max_length=100)
     video = EmbedVideoField()
     external_links = models.ManyToManyField(Link, related_name='link', blank=True)
+    description = models.TextField()
     created_at = models.DateField(auto_now_add=True)
 
     def __str__(self):
