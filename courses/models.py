@@ -16,7 +16,7 @@ class Link(models.Model):
 
 class Skill(models.Model):
     name = models.CharField(max_length=100)
-    url = models.ManyToManyField(Link, blank=True)
+    urls = models.ManyToManyField(Link, blank=True)
     description = models.TextField()
     image = models.ImageField(upload_to='images/skills/', null=True)
 
@@ -25,7 +25,7 @@ class Skill(models.Model):
 
 class Instructor(models.Model):
     user =models.ForeignKey(User, on_delete=models.CASCADE)
-    skills = models.ForeignKey(Skill, on_delete=models.CASCADE)
+    skills = models.ManyToManyField(Skill)
 
     def __str__(self):
         return self.user.username
