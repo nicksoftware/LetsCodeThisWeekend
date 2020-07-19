@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'avatar',
     'embed_video',
     'django_summernote',
-    
+
     # Own apps
     'pages.apps.PagesConfig',
     'blog',

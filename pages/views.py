@@ -3,8 +3,8 @@ from blog.models import Post
 from courses.models import Course
 # Create your views here.
 def index(request):
-    courses = Course.objects.order_by('-pub_date').filter(is_published=True)[:4]
-    
+    courses = Course.objects.order_by('-publish_date').filter(is_published=True)[:4]
+
     posts = Post.objects.order_by('-pub_date').filter(is_published=True)[:3]
     context = {
         'courses':courses,
@@ -14,6 +14,6 @@ def index(request):
 
 def about(request):
     context = {
-        
+
     }
     return render(request, 'pages/about.html',context)

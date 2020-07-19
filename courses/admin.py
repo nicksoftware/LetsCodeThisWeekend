@@ -1,16 +1,48 @@
 from django.contrib import admin
-from .models import Course,Step, Instructor, Category
+from django_summernote.admin import SummernoteModelAdmin
+from .models import (
+    Link,
+    Skill,
+    Category,
+    Instructor,
+    Course,
+    Tutorial,
+    Step
+)
 
-class StepInline(admin.StackedInline):
-    model = Step
 
-class CourseAdmin(admin.ModelAdmin):
-    inlines = [StepInline,]
-    list_display = ('id', 'title','category', 'is_published', 'price', 'pub_date')
-    list_editable = ('is_published','category')
-    list_display_links = ('id', 'title')
+class LinkAdmin(SummernoteModelAdmin):
+    summernote_fields = '__all__'
 
-    list_per_page = 25
-admin.site.register(Instructor)
-admin.site.register(Category) 
-admin.site.register(Course,CourseAdmin)
+
+class SkillAdmin(SummernoteModelAdmin):
+    summernote_fields = '__all__'
+
+
+class CategoryAdmin(SummernoteModelAdmin):
+    summernote_fields = '__all__'
+
+
+class InstructorAdmin(admin.ModelAdmin):
+    pass
+
+
+class CourseAdmin(SummernoteModelAdmin):
+    summernote_fields = '__all__'
+
+
+class TutorialAdmin(SummernoteModelAdmin):
+    summernote_fields = '__all__'
+
+
+class StepAdmin(SummernoteModelAdmin):
+    summernote_fields = '__all__'
+
+
+admin.site.register(Link, LinkAdmin)
+admin.site.register(Skill, SkillAdmin)
+admin.site.register(Category, CategoryAdmin)
+admin.site.register(Instructor, InstructorAdmin)
+admin.site.register(Course, CourseAdmin)
+admin.site.register(Tutorial, TutorialAdmin)
+admin.site.register(Step, StepAdmin)
