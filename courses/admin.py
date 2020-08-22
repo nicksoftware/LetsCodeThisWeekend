@@ -26,8 +26,10 @@ class CategoryAdmin(SummernoteModelAdmin):
 class InstructorAdmin(admin.ModelAdmin):
     pass
 
-
+class StepInline(admin.StackedInline):
+    model = Step
 class CourseAdmin(SummernoteModelAdmin):
+    inlines = [StepInline]
     summernote_fields = '__all__'
 
 

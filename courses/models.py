@@ -58,10 +58,12 @@ class Course(models.Model):
 class Tutorial(models.Model):
     title = models.CharField(max_length=100)
     video = EmbedVideoField()
+    order = models.IntegerField(default=1)
     external_links = models.ManyToManyField(Link, related_name='link', blank=True)
     description = models.TextField()
     created_at = models.DateField(auto_now_add=True)
-
+    class Meta:
+        ordering = ['order',]
     def __str__(self):
         return self.title
 
