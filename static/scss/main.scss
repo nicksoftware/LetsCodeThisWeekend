@@ -1,0 +1,26 @@
+@import 'material-kit.scss';
+@import './components/index';
+
+/* Slide Panel on top 1 */
+
+.product-slider {
+    clear: both;
+    margin-bottom: 20px;
+}
+
+.product-slider .item {
+    margin: 0 25px;
+}
+
+body {
+    background-color: white;
+}
+
+.product-slider .product {
+    margin-bottom: 0;
+}
+
+.product-slider .owl-dots {
+    position: relative;
+    margin-bottom: 30px;
+}

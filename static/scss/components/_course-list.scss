@@ -1,0 +1,46 @@
+/* course-list-title */
+
+.shade,
+.course-list-title {
+    /* background-color:rgba(14, 13, 13, 0.747); */
+    background: rgba(0, 0, 0, 0.493);
+    border-radius: 2%;
+}
+
+.clear-filter:after,
+.clear-filter:before {
+    display: none;
+}
+
+.clear-filter[filter-color="orange"] {
+    background: rgba(44, 44, 44, 0.2);
+    /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(90deg, rgba(44, 44, 44, 0.2), rgba(224, 3, 132, 0.6));
+    /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(90deg, rgba(44, 44, 44, 0.2), rgba(224, 3, 132, 0.6));
+    /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(90deg, rgba(44, 44, 44, 0.2), rgba(224, 3, 132, 0.6));
+    /* For Firefox 3.6 to 15 */
+    background: linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 3, 132, 0.6));
+    /* Standard syntax */
+}
+
+
+/* courses Filter */
+
+.course-container {
+    overflow: hidden;
+}
+
+.filterDiv {
+    float: left;
+    display: none;
+    /* Hidden by default */
+}
+
+
+/* The "show" class is added to the filtered elements */
+
+.show {
+    display: block;
+}

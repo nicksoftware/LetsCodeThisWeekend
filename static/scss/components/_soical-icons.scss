@@ -1,0 +1,65 @@
+/* social Media Icons */
+
+.patreon {
+    color: #E85B46;
+}
+
+.linkedin {
+    color: #025682;
+}
+
+.facebook {
+    color: #28AAE1;
+}
+
+.twitter {
+    color: #28AAE1;
+}
+
+
+/* Social icons */
+
+.social {
+    text-align: center;
+}
+
+.social a {
+    margin: 0 10px 0 0;
+    color: #fff;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    line-height: 26px;
+    font-size: 15px;
+    text-align: center;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    vertical-align: bottom;
+    background-color: #555;
+}
+
+.social a i {
+    vertical-align: bottom;
+    line-height: 30px;
+}
+
+.social a.facebook:hover {
+    background-color: #4460ae;
+}
+
+.social a.gplus:hover {
+    background-color: #c21f25;
+}
+
+.social a.twitter:hover {
+    background-color: #3cf;
+}
+
+.social a.instagram:hover {
+    background-color: #cd4378;
+}
+
+.social a.email:hover {
+    background-color: #4a7f45;
+}

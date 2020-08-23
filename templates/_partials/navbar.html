@@ -1,10 +1,8 @@
-<nav class="navbar navbar-transparent font-weight-bold navbar-color-on-scroll fixed-top navbar-expand-lg"
-    color-on-scroll="100" id="sectionsNav">
+<nav class="navbar navbar-transparent font-weight-bold navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
     <div class="container">
         <div class="navbar-translate">
             <a class="navbar-brand " href=" {% url 'index' %} "><i class="fas fa-code"></i> Let's Code This Weekend </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
-                aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="navbar-toggler-icon"></span>
                 <span class="navbar-toggler-icon"></span>
@@ -14,7 +12,8 @@
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
                 <li class="dropdown nav-item  ">
-                    <a href="#" class="dropdown-toggle nav-link  btn  bg-transparent mr-2 navbar-success" data-toggle="dropdown">
+                    <a href="#" class="dropdown-toggle nav-link
+                      btn  bg-transparent mr-2 navbar-success" data-toggle="dropdown">
                         <i class="material-icons">school</i> Tutorials
                     </a>
                     <div class="dropdown-menu dropdown-with-icons ">
@@ -22,50 +21,48 @@
                             <i class="material-icons">school</i> Computer Science
                         </a>
 
-                        <a href="vb.php" class="dropdown-item">
+                        <a href="#" class="dropdown-item">
                             <i class="material-icons">school</i> Programming Courses
                         </a>
-                        <a href="./index.html" class="dropdown-item">
+                        <a href="#" class="dropdown-item">
                             <i class="material-icons">layers</i>Information Technology
                         </a>
-                        <a href="./index.html" class="dropdown-item">
+                        <a href="#" class="dropdown-item">
                             <i class="material-icons">layers</i> Development
                         </a>
-                        <a href="./index.html" class="dropdown-item">
+                        <a href="#" class="dropdown-item">
                             <i class="material-icons ">layers</i>Cyber Security
                         </a>
-                        <a href="./index.html" class="dropdown-item">
+                        <a href="#" class="dropdown-item">
                             <i class="material-icons">layers</i>General
                         </a>
-                        <a href="./index.html" class="dropdown-item">
+                        <a href="#" class="dropdown-item">
                             <i class="material-icons">layers</i>Mathematics
                         </a>
                     </div>
 
                 </li>
                 <li class="dropdown nav-item ">
-                    <a href="{% url 'blog' %}" class="nav-link  btn btn-success btn-round  bg-transparent mr-2" >
-                        <i class="material-icons">people</i>  Blog
+                    <a href="{% url 'blog' %}" class="nav-link  btn btn-success btn-round  bg-transparent mr-2">
+                        <i class="material-icons">people</i> Blog
                     </a>
-                    </li>
-                    <li class="dropdown nav-item ">
-                        <a href="{% url 'about' %}" class="nav-link  btn btn-success btn-round  bg-transparent mr-2" >
-                            <i class="fa fa-support mb-0"></i> About us
-                        </a>
-                        </li>
-                        {% if user.is_authenticated %}
+                </li>
+                <li class="dropdown nav-item ">
+                    <a href="{% url 'about' %}" class="nav-link  btn btn-success btn-round  bg-transparent mr-2">
+                        <i class="fa fa-support mb-0"></i> About us
+                    </a>
+                </li>
+                {% if user.is_authenticated %}
 
 
-                        <!-- Appears When Logged in Only -->
+                <!-- Appears When Logged in Only -->
                 <li class="nav-item active" class="nav-item">
 
-                    <a href="{% url 'dashboard' %}" {% if 'dashboard' == request.path %}
-                        class="nav-link btn btn-success btn-round  bg-transparent mr-2 disabled" {% else %}
-                        class="nav-link btn btn-success btn-round  bg-transparent mr-2 " {% endif %}><i
+                    <a href="{% url 'dashboard' %}" {% if 'dashboard' == request.path %} class="nav-link btn btn-success btn-round  bg-transparent mr-2 disabled" {% else %} class="nav-link btn btn-success btn-round  bg-transparent mr-2 " {% endif %}><i
                             class=" fas fa-home "></i> Dashboard</a>
                 </li>
                 <li class="nav-item ">
-                    <button  type="button"  class="nav-link btn   btn-success btn-round bg-transparent mr-2" data-toggle="modal" data-target="#notificationModel">
+                    <button type="button" class="nav-link btn   btn-success btn-round bg-transparent mr-2" data-toggle="modal" data-target="#notificationModel">
                         <i class=" fas fa-envelope "></i> Notifications</button>
                 </li>
                 <li class="nav-item">
@@ -82,33 +79,31 @@
                             class="text-danger fas fa-heart "></i>2 Wish-list</a>
                 </li> -->
                 <li class="nav-item ">
-                    <a  href="javascript:{document.getElementById('logout').submit()}"
-                        class="nav-link "><i class="fas fa-sign-out-alt"></i>Logout</a>
+                    <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link "><i class="fas fa-sign-out-alt"></i>Logout</a>
                     <form action="{% url 'logout' %}" method="POST" id="logout">
                         {% csrf_token %}
                         <input type="hidden">
                     </form>
                 </li>
-                {% else %}
-                {% if '/login' == request.path %}
+                {% else %} {% if '/login' == request.path %}
                 <li class="nav-item active">
                     {% else %}
-                <li class="nav-item">
-                    {% endif %}
-                    <a class="nav-link btn btn-danger btn-round  bg-transparent mr-2" data-toggle="modal" data-target="#loginModel">
-                        <i class="material-icons">person</i> Login
-                    </a>
-                </li>
-                <li class="nav-item active">
+                    <li class="nav-item">
+                        {% endif %}
+                        <a class="nav-link btn btn-danger btn-round  bg-transparent mr-2" data-toggle="modal" data-target="#loginModel">
+                            <i class="material-icons">person</i> Login
+                        </a>
+                    </li>
+                    <li class="nav-item active">
 
-                    {% if '/register' == request.path %}
-                <li class="nav-item active ">
-                    {% else %}
-                <li class="nav-item ">
-                    {% endif %}
-                    <a class="nav-link btn btn-info btn-round  bg-transparent mr-2" href="{% url 'register' %}">
-                        <i class="material-icons">person_add</i>Register</a>
-                </li>
+                        {% if '/register' == request.path %}
+                        <li class="nav-item active ">
+                            {% else %}
+                            <li class="nav-item ">
+                                {% endif %}
+                                <a class="nav-link btn btn-info btn-round  bg-transparent mr-2" href="{% url 'register' %}">
+                                    <i class="material-icons">person_add</i>Register</a>
+                            </li>
 
         </div>
         </li>
@@ -121,13 +116,12 @@
 
 
 <!-- Login model -->
-<div class="modal fade" id="loginModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div class="modal fade" id="loginModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content bg-rose">
             <div class="modal-header bg-rose">
                 <div class="row text-center">
-                    <div class="col-md-12 text-center "style="margin-left:15%">
+                    <div class="col-md-12 text-center " style="margin-left:15%">
                         <h3 class="text-center">Sign in with</h3>
                     </div>
                     <div class="row text-center" style="margin-left: 35%">
@@ -168,8 +162,7 @@
                                                 <i class="far fa-envelope"></i>
                                             </span>
                                         </div>
-                                        <input type="text" name="username" class="form-control"
-                                            placeholder="username..." required>
+                                        <input type="text" name="username" class="form-control" placeholder="username..." required>
                                     </div>
 
                                     <div class="input-group no-border">
@@ -178,8 +171,7 @@
                                                 <i class="fas fa-key"></i>
                                             </span>
                                         </div>
-                                        <input type="password" name="password" class="form-control"
-                                            placeholder="Password..." required>
+                                        <input type="password" name="password" class="form-control" placeholder="Password..." required>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-4">
@@ -198,8 +190,7 @@
                                 </div>
                         </div>
                         <div>
-                            <button type="submit" value="login"
-                                class="col text-center btn btn-primary mb-2">Login</button>
+                            <button type="submit" value="login" class="col text-center btn btn-primary mb-2">Login</button>
 
                         </div>
                         </form>
@@ -212,8 +203,7 @@
 </div>
 
 <!-- Notificatons Model -->
-<div class="modal fade" id="notificationModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div class="modal fade" id="notificationModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content bg-rose">
 
@@ -221,16 +211,16 @@
                 <div class="container">
                     <div class="row">
                         <div class="card card-signup " data-background-color="">
-                                <div class="modal-body">
-                                        <h5 class="text-center">You do not have any new Notifications</h5>
-                                     </div>
+                            <div class="modal-body">
+                                <h5 class="text-center">You do not have any new Notifications</h5>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
-
     </div>
-</div>
 
-<!-- End Notifcation Mdel -->
+    <!-- End Notifcation Mdel -->
 </div>
