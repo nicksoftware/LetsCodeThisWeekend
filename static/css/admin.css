@@ -1,25 +1,8 @@
-#header{
+#header {
     background: #0f8bc7;
-}
-#branding h1, #branding h1 a:link, #branding h1 a:visited{
-
-    color:#555555;
-    
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-#branding h1{
-    font-weight: bold;
-    font-size: 20px;
-}
-
-body {
-    background: #9C27B0;
-    
-}
-#content-main{
-    background: #9C27B0;
-    
-}
-#content{
-    background: #9C27B0;
+caption {
+    background: #0f8bc7;
 }

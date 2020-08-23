@@ -12816,7 +12816,7 @@ footer {
   display: block;
   font-size: 20px;
   top: 0;
-  color: #E91E63;
+  color: #2196f3;
   opacity: 0;
   transition: .5s;
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); }
@@ -12875,6 +12875,27 @@ footer {
 .social a.email:hover {
   background-color: #4a7f45; }
 
+#header {
+  background: #0f8bc7; }
+
+#branding h1,
+#branding h1 a:link,
+#branding h1 a:visited {
+  color: #555555; }
+
+#branding h1 {
+  font-weight: bold;
+  font-size: 20px; }
+
+body {
+  background: #9C27B0; }
+
+#content-main {
+  background: #9C27B0; }
+
+#content {
+  background: #9C27B0; }
+
 /* Slide Panel on top 1 */
 .product-slider {
   clear: both;
@@ -12882,6 +12903,9 @@ footer {
 
 .product-slider .item {
   margin: 0 25px; }
+
+body {
+  background-color: white; }
 
 .product-slider .product {
   margin-bottom: 0; }

@@ -3,7 +3,7 @@ var path = require('path');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
-
+var open = require('gulp-open');
 
 var Paths = {
     HERE: './',
@@ -27,5 +27,10 @@ gulp.task('watch', function() {
     gulp.watch(Paths.SCSS, gulp.series('compile-scss'));
 });
 
+gulp.task('open', function(fopen) {
+    gulp.src('index.html')
+        .pipe(open());
+    fopen();
+});
 
 gulp.task('open-app', gulp.series('open', 'watch'));
