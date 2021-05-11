@@ -9,6 +9,6 @@
         "gulp-open": "^3.0.1",
         "gulp-sass": "^4.1.0",
         "gulp-sourcemaps": "^2.6.5",
-        "lodash": "^4.17.20"
+        "lodash": "^4.17.21"
     }
 }
