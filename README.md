@@ -1,5 +1,6 @@
 # Let's Code This Weekend
 
+[Youtube Preview](https://www.youtube.com/watch?v=2cmuv0A8VrU)
 ---
 ## Getting Started.
 ---
